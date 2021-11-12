@@ -1,0 +1,2683 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+         xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+         xmlns:owl="http://www.w3.org/2002/07/owl#"
+         xml:base="http://www.unisinos.br/pipca/ontologies/eroutines"
+         xmlns="http://www.unisinos.br/pipca/ontologies/eroutines#">
+
+<owl:Ontology rdf:about="http://www.unisinos.br/pipca/ontologies/eroutines"/>
+
+<owl:ObjectProperty rdf:about="#behaviorProperties"/>
+
+<owl:ObjectProperty rdf:about="#belongToContext">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+  <rdfs:domain rdf:resource="#Event"/>
+  <rdfs:range rdf:resource="#Context"/>
+  <rdfs:subPropertyOf rdf:resource="#eventProperties"/>
+  <owl:inverseOf rdf:resource="#hasEvent"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#eventProperties"/>
+
+<owl:ObjectProperty rdf:about="#hasEvent">
+  <rdfs:domain rdf:resource="#Context"/>
+  <rdfs:range rdf:resource="#Event"/>
+  <rdfs:subPropertyOf rdf:resource="#contextRelations"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#belongToPerson">
+  <rdfs:domain rdf:resource="#SociodemographicProfile"/>
+  <rdfs:range rdf:resource="#Person"/>
+  <rdfs:subPropertyOf rdf:resource="#sociodemographicProfileAttributes"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#sociodemographicProfileAttributes">
+  <rdfs:subPropertyOf rdf:resource="#personProperties"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#containsBehaviorIndicators">
+  <rdfs:domain rdf:resource="#Context"/>
+  <rdfs:range rdf:resource="#BehaviorIndicator"/>
+  <rdfs:subPropertyOf rdf:resource="#contextRelations"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#contextRelations"/>
+
+<owl:ObjectProperty rdf:about="#containsIndicatorInformation">
+  <rdfs:domain rdf:resource="#Context"/>
+  <rdfs:range rdf:resource="#BehaviorIndicator"/>
+  <rdfs:subPropertyOf rdf:resource="#contextRelations"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#contextHistoryProperties"/>
+
+<owl:ObjectProperty rdf:about="#diagnosedBy">
+  <rdfs:domain rdf:resource="#Diagnosis"/>
+  <rdfs:range rdf:resource="#Professional"/>
+  <rdfs:subPropertyOf rdf:resource="#diagnosisProperties"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#diagnosisProperties"/>
+
+<owl:ObjectProperty rdf:about="#disorderProperties">
+  <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#fromInstant">
+  <rdfs:domain rdf:resource="#Interval"/>
+  <rdfs:range rdf:resource="#Instant"/>
+  <rdfs:subPropertyOf rdf:resource="#hasTemporalProperties"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#hasTemporalProperties"/>
+
+<owl:ObjectProperty rdf:about="#generatesBehaviorPatterns">
+  <rdfs:range rdf:resource="#BehaviorPattern"/>
+  <rdfs:subPropertyOf rdf:resource="#contextHistoryProperties"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#generatesInformation">
+  <rdfs:domain rdf:resource="#SensorThing"/>
+  <rdfs:range rdf:resource="#SensoringInformation"/>
+  <rdfs:subPropertyOf rdf:resource="#sensorProperties"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#sensorProperties"/>
+
+<owl:ObjectProperty rdf:about="#happenedAtLocation">
+  <rdfs:domain rdf:resource="#Context"/>
+  <rdfs:range rdf:resource="#SpatialThing"/>
+  <rdfs:subPropertyOf rdf:resource="#contextRelations"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#happenedAtTime">
+  <rdfs:domain rdf:resource="#Context"/>
+  <rdfs:range rdf:resource="#TemporalThing"/>
+  <rdfs:subPropertyOf rdf:resource="#contextRelations"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#happenedWithPerson">
+  <rdfs:domain rdf:resource="#Context"/>
+  <rdfs:range rdf:resource="#Person"/>
+  <rdfs:subPropertyOf rdf:resource="#contextRelations"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#hasAgeGroup">
+  <rdfs:domain rdf:resource="#SociodemographicProfile"/>
+  <rdfs:range rdf:resource="#AgeGroup"/>
+  <rdfs:subPropertyOf rdf:resource="#sociodemographicProfileAttributes"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#hasAssessment">
+  <rdfs:domain rdf:resource="#Event"/>
+  <rdfs:range rdf:resource="#MedicalAssessment"/>
+  <rdfs:subPropertyOf rdf:resource="#eventProperties"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#hasCoordinates">
+  <rdfs:domain rdf:resource="#Location"/>
+  <rdfs:range rdf:resource="#GeoCoordiantes"/>
+  <rdfs:subPropertyOf rdf:resource="#hasSpatialProperties"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#hasSpatialProperties"/>
+
+<owl:ObjectProperty rdf:about="#hasDiagnosis">
+  <rdfs:domain rdf:resource="#MedicalAssessment"/>
+  <rdfs:range rdf:resource="#Diagnosis"/>
+  <rdfs:subPropertyOf rdf:resource="#medicalAssessmentProperties"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#medicalAssessmentProperties">
+  <rdfs:domain rdf:resource="#MedicalAssessment"/>
+  <rdfs:subPropertyOf rdf:resource="#eventProperties"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#hasDisorder">
+  <rdfs:domain rdf:resource="#Diagnosis"/>
+  <rdfs:range rdf:resource="#Disorder"/>
+  <rdfs:subPropertyOf rdf:resource="#diagnosisProperties"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#hasEducationLevel">
+  <rdfs:domain rdf:resource="#SociodemographicProfile"/>
+  <rdfs:range rdf:resource="#EducationLevel"/>
+  <rdfs:subPropertyOf rdf:resource="#sociodemographicProfileAttributes"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#hasEmploymentStatus">
+  <rdfs:domain rdf:resource="#SociodemographicProfile"/>
+  <rdfs:range rdf:resource="#EmploymentStatus"/>
+  <rdfs:subPropertyOf rdf:resource="#sociodemographicProfileAttributes"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#hasGender">
+  <rdfs:domain rdf:resource="#SociodemographicProfile"/>
+  <rdfs:range rdf:resource="#Gender"/>
+  <rdfs:subPropertyOf rdf:resource="#sociodemographicProfileAttributes"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#hasMaritalStatus">
+  <rdfs:domain rdf:resource="#SociodemographicProfile"/>
+  <rdfs:range rdf:resource="#MaritalStatus"/>
+  <rdfs:subPropertyOf rdf:resource="#sociodemographicProfileAttributes"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#hasPersonRole">
+  <rdfs:domain rdf:resource="#Person"/>
+  <rdfs:range rdf:resource="#PersonRole"/>
+  <rdfs:subPropertyOf rdf:resource="#peopleRelations"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#peopleRelations">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#hasPrescribedMedication">
+  <rdfs:domain rdf:resource="#Diagnosis"/>
+  <rdfs:range rdf:resource="#Medication"/>
+  <rdfs:subPropertyOf rdf:resource="#diagnosisProperties"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#hasReligion">
+  <rdfs:domain rdf:resource="#SociodemographicProfile"/>
+  <rdfs:range rdf:resource="#Religion"/>
+  <rdfs:subPropertyOf rdf:resource="#sociodemographicProfileAttributes"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#hasSociodemographicProfile">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#MedicalAssessment"/>
+  <rdfs:range rdf:resource="#SociodemographicProfile"/>
+  <rdfs:subPropertyOf rdf:resource="#medicalAssessmentProperties"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#hasStatus">
+  <rdfs:domain rdf:resource="#Diagnosis"/>
+  <rdfs:subPropertyOf rdf:resource="#diagnosisProperties"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#isBeingTreatedBy">
+  <rdfs:domain rdf:resource="#Patient"/>
+  <rdfs:range rdf:resource="#Professional"/>
+  <rdfs:subPropertyOf rdf:resource="#peopleRelations"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#isComposedOf">
+  <rdfs:domain rdf:resource="#ContextHistory"/>
+  <rdfs:range rdf:resource="#Context"/>
+  <rdfs:subPropertyOf rdf:resource="#contextHistoryProperties"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#isComposedOfIndicators">
+  <rdfs:domain rdf:resource="#BehaviorPattern"/>
+  <rdfs:range rdf:resource="#BehaviorIndicator"/>
+  <rdfs:subPropertyOf rdf:resource="#behaviorProperties"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#isDescribedBySensor">
+  <rdfs:domain rdf:resource="#BehaviorIndicator"/>
+  <rdfs:range rdf:resource="#SensorThing"/>
+  <rdfs:subPropertyOf rdf:resource="#behaviorProperties"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#isDiagnosedByBehavior">
+  <rdfs:domain rdf:resource="#Disorder"/>
+  <rdfs:range rdf:resource="#BehaviorIndicator"/>
+  <rdfs:subPropertyOf rdf:resource="#disorderProperties"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#isSupportedBy">
+  <rdfs:domain rdf:resource="#Patient"/>
+  <rdfs:range rdf:resource="#Support"/>
+  <rdfs:subPropertyOf rdf:resource="#peopleRelations"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#personProperties"/>
+
+<owl:ObjectProperty rdf:about="#requiresTimePeriod">
+  <rdfs:subPropertyOf rdf:resource="#sensorProperties"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#toInstant">
+  <rdfs:domain rdf:resource="#Interval"/>
+  <rdfs:range rdf:resource="#Instant"/>
+  <rdfs:subPropertyOf rdf:resource="#hasTemporalProperties"/>
+</owl:ObjectProperty>
+
+<owl:DatatypeProperty rdf:about="#age">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#AgeGroup"/>
+  <rdfs:range>
+    <rdfs:Datatype>
+      <owl:unionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#int"/>
+      </owl:unionOf>
+    </rdfs:Datatype>
+  </rdfs:range>
+  <rdfs:subPropertyOf rdf:resource="#sociodemographicData"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#sociodemographicData"/>
+
+<owl:DatatypeProperty rdf:about="#diagnosisData"/>
+
+<owl:DatatypeProperty rdf:about="#diagnosisStatus">
+  <rdfs:range>
+    <rdfs:Datatype>
+      <owl:oneOf>
+        <rdf:Description>
+      <rdf:first>confirmed</rdf:first>
+        <rdf:rest>
+        <rdf:Description>
+      <rdf:first>preliminary</rdf:first>
+        <rdf:rest>
+        <rdf:Description>
+      <rdf:first>remission</rdf:first>
+        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+        </rdf:Description>
+        </rdf:rest>
+        </rdf:Description>
+        </rdf:rest>
+        </rdf:Description>
+      </owl:oneOf>
+    </rdfs:Datatype>
+  </rdfs:range>
+  <rdfs:subPropertyOf rdf:resource="#diagnosisData"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#diagnosisType">
+  <rdfs:range>
+    <rdfs:Datatype>
+      <owl:oneOf>
+        <rdf:Description>
+      <rdf:first>new</rdf:first>
+        <rdf:rest>
+        <rdf:Description>
+      <rdf:first>subsequent</rdf:first>
+        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+        </rdf:Description>
+        </rdf:rest>
+        </rdf:Description>
+      </owl:oneOf>
+    </rdfs:Datatype>
+  </rdfs:range>
+  <rdfs:subPropertyOf rdf:resource="#diagnosisData"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#disorderData"/>
+
+<owl:DatatypeProperty rdf:about="#dsm5code">
+  <rdfs:domain rdf:resource="#Disorder"/>
+  <rdfs:subPropertyOf rdf:resource="#disorderData"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#educationLevel">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#EducationLevel"/>
+  <rdfs:subPropertyOf rdf:resource="#sociodemographicData"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#employmentStatus">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#EmploymentStatus"/>
+  <rdfs:subPropertyOf rdf:resource="#sociodemographicData"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#gender">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#Gender"/>
+  <rdfs:subPropertyOf rdf:resource="#sociodemographicData"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#happenedOn">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#Instant"/>
+  <rdfs:range>
+    <rdfs:Datatype>
+      <owl:unionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#dateTime"/>
+        <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#dateTimeStamp"/>
+      </owl:unionOf>
+    </rdfs:Datatype>
+  </rdfs:range>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#icd11code">
+  <rdfs:domain rdf:resource="#Disorder"/>
+  <rdfs:subPropertyOf rdf:resource="#disorderData"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#latitude">
+  <rdfs:domain rdf:resource="#GeoCoordiantes"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#longitude">
+  <rdfs:domain rdf:resource="#GeoCoordiantes"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#maritalStatus">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#MaritalStatus"/>
+  <rdfs:subPropertyOf rdf:resource="#sociodemographicData"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#name">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#religion">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#Religion"/>
+  <rdfs:subPropertyOf rdf:resource="#sociodemographicData"/>
+</owl:DatatypeProperty>
+
+<owl:Class rdf:about="#Event"/>
+
+<owl:Class rdf:about="#Context"/>
+
+<owl:Class rdf:about="#SociodemographicProfile"/>
+
+<owl:Class rdf:about="#Person"/>
+
+<owl:Class rdf:about="#BehaviorIndicator">
+  <rdfs:subClassOf rdf:resource="#Behavior"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Diagnosis">
+  <rdfs:subClassOf rdf:resource="#MedicalDomain"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Professional">
+  <rdfs:subClassOf rdf:resource="#PersonRole"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Interval">
+  <rdfs:subClassOf rdf:resource="#TemporalThing"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Instant">
+  <rdfs:subClassOf rdf:resource="#TemporalThing"/>
+</owl:Class>
+
+<owl:Class rdf:about="#BehaviorPattern">
+  <rdfs:subClassOf rdf:resource="#Behavior"/>
+</owl:Class>
+
+<owl:Class rdf:about="#SensorThing"/>
+
+<owl:Class rdf:about="#SensoringInformation"/>
+
+<owl:Class rdf:about="#SpatialThing"/>
+
+<owl:Class rdf:about="#TemporalThing"/>
+
+<owl:Class rdf:about="#AgeGroup">
+  <rdfs:subClassOf rdf:resource="#SociodemographicProfile"/>
+</owl:Class>
+
+<owl:Class rdf:about="#MedicalAssessment">
+  <rdfs:subClassOf rdf:resource="#Event"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Location">
+  <rdfs:subClassOf rdf:resource="#SpatialThing"/>
+</owl:Class>
+
+<owl:Class rdf:about="#GeoCoordiantes">
+  <rdfs:subClassOf rdf:resource="#SpatialThing"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#latitude"/>
+      <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+      <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#longitude"/>
+      <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+      <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+</owl:Class>
+
+<owl:Class rdf:about="#Disorder">
+  <rdfs:subClassOf rdf:resource="#MedicalDomain"/>
+</owl:Class>
+
+<owl:Class rdf:about="#EducationLevel">
+  <rdfs:subClassOf rdf:resource="#SociodemographicProfile"/>
+</owl:Class>
+
+<owl:Class rdf:about="#EmploymentStatus">
+  <rdfs:subClassOf rdf:resource="#SociodemographicProfile"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Gender">
+  <rdfs:subClassOf rdf:resource="#SociodemographicProfile"/>
+</owl:Class>
+
+<owl:Class rdf:about="#MaritalStatus">
+  <rdfs:subClassOf rdf:resource="#SociodemographicProfile"/>
+</owl:Class>
+
+<owl:Class rdf:about="#PersonRole"/>
+
+<owl:Class rdf:about="#Medication">
+  <rdfs:subClassOf rdf:resource="#MedicalDomain"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Religion">
+  <rdfs:subClassOf rdf:resource="#SociodemographicProfile"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Patient">
+  <rdfs:subClassOf rdf:resource="#PersonRole"/>
+</owl:Class>
+
+<owl:Class rdf:about="#ContextHistory"/>
+
+<owl:Class rdf:about="#Support">
+  <rdfs:subClassOf rdf:resource="#PersonRole"/>
+</owl:Class>
+
+<owl:Class rdf:about="#ActiveSensor">
+  <rdfs:subClassOf rdf:resource="#SensorThing"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Adult">
+  <rdfs:subClassOf rdf:resource="#AgeGroup"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#AgeGroup"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#age"/>
+          <owl:someValuesFrom>
+            <rdfs:Datatype>
+              <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+              <owl:withRestrictions>
+                <rdf:Description>
+                  <rdf:first>
+                    <rdf:Description>
+                      <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#int">25</xsd:minInclusive>
+                    </rdf:Description>
+                  </rdf:first>
+                  <rdf:rest>
+                    <rdf:Description>
+                      <rdf:first>
+                        <rdf:Description>
+                          <xsd:maxExclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#int">60</xsd:maxExclusive>
+                        </rdf:Description>
+                      </rdf:first>
+                      <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                    </rdf:Description>
+                  </rdf:rest>
+                </rdf:Description>
+              </owl:withRestrictions>
+            </rdfs:Datatype>
+          </owl:someValuesFrom>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="#Adventist">
+  <rdfs:subClassOf rdf:resource="#Religion"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#Religion"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#religion"/>
+          <owl:hasValue>adventist</owl:hasValue>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="#AgeUnknown">
+  <rdfs:subClassOf rdf:resource="#AgeGroup"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#AgeGroup"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#age"/>
+          <owl:hasValue>unknown</owl:hasValue>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="#Anxiety">
+  <rdfs:subClassOf rdf:resource="#Disorder"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Atheist">
+  <rdfs:subClassOf rdf:resource="#Religion"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#Religion"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#religion"/>
+          <owl:hasValue>atheist</owl:hasValue>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="#Behavior"/>
+
+<owl:Class rdf:about="#Catholic">
+  <rdfs:subClassOf rdf:resource="#Religion"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#Religion"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#religion"/>
+          <owl:hasValue>catholic</owl:hasValue>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="#Children">
+  <rdfs:subClassOf rdf:resource="#AgeGroup"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#AgeGroup"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#age"/>
+          <owl:someValuesFrom>
+            <rdfs:Datatype>
+              <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+              <owl:withRestrictions>
+                <rdf:Description>
+                  <rdf:first>
+                    <rdf:Description>
+                      <xsd:maxExclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#int">13</xsd:maxExclusive>
+                    </rdf:Description>
+                  </rdf:first>
+                  <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                </rdf:Description>
+              </owl:withRestrictions>
+            </rdfs:Datatype>
+          </owl:someValuesFrom>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="#City">
+  <rdfs:subClassOf rdf:resource="#SpatialThing"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Cohabiting">
+  <rdfs:subClassOf rdf:resource="#MaritalStatus"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#MaritalStatus"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#maritalStatus"/>
+          <owl:hasValue>cohabiting</owl:hasValue>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="#CollegeComplete">
+  <rdfs:subClassOf rdf:resource="#EducationLevel"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#EducationLevel"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#educationLevel"/>
+          <owl:hasValue>collegeComplete</owl:hasValue>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="#CollegeIncomplete">
+  <rdfs:subClassOf rdf:resource="#EducationLevel"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#EducationLevel"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#educationLevel"/>
+          <owl:hasValue>collegeIncomplete</owl:hasValue>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="#CollegePostgraduated">
+  <rdfs:subClassOf rdf:resource="#EducationLevel"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#EducationLevel"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#educationLevel"/>
+          <owl:hasValue>collegePostgraduated</owl:hasValue>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="#ConfirmedDiagnosis">
+  <rdfs:subClassOf rdf:resource="#Diagnosis"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#Diagnosis"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#diagnosisStatus"/>
+          <owl:hasValue>confirmed</owl:hasValue>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="#Country">
+  <rdfs:subClassOf rdf:resource="#SpatialThing"/>
+</owl:Class>
+
+<owl:Class rdf:about="#MedicalDomain"/>
+
+<owl:Class rdf:about="#Divorced">
+  <rdfs:subClassOf rdf:resource="#MaritalStatus"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#MaritalStatus"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#maritalStatus"/>
+          <owl:hasValue>divorced</owl:hasValue>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="#EduUnknown">
+  <rdfs:subClassOf rdf:resource="#EducationLevel"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#EducationLevel"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#educationLevel"/>
+          <owl:hasValue>unknown</owl:hasValue>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="#Elderly">
+  <rdfs:subClassOf rdf:resource="#AgeGroup"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#AgeGroup"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#age"/>
+          <owl:someValuesFrom>
+            <rdfs:Datatype>
+              <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+              <owl:withRestrictions>
+                <rdf:Description>
+                  <rdf:first>
+                    <rdf:Description>
+                      <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#int">60</xsd:minInclusive>
+                    </rdf:Description>
+                  </rdf:first>
+                  <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                </rdf:Description>
+              </owl:withRestrictions>
+            </rdfs:Datatype>
+          </owl:someValuesFrom>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="#Employed">
+  <rdfs:subClassOf rdf:resource="#EmploymentStatus"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#EmploymentStatus"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#employmentStatus"/>
+          <owl:hasValue>employed</owl:hasValue>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="#Environment">
+  <rdfs:subClassOf rdf:resource="#Location"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Evangelic">
+  <rdfs:subClassOf rdf:resource="#Religion"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#Religion"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#religion"/>
+          <owl:hasValue>evangelic</owl:hasValue>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="#Female">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdfs:subClassOf rdf:resource="#Gender"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#Gender"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#gender"/>
+          <owl:hasValue>female</owl:hasValue>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="#FundamentalComplete">
+  <rdfs:subClassOf rdf:resource="#EducationLevel"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#EducationLevel"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#educationLevel"/>
+          <owl:hasValue>fundamentalComplete</owl:hasValue>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="#FundamentalIncomplete">
+  <rdfs:subClassOf rdf:resource="#EducationLevel"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#EducationLevel"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#educationLevel"/>
+          <owl:hasValue>fundamentalIncomplete</owl:hasValue>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="#GeneralAnxiety">
+  <rdfs:subClassOf rdf:resource="#Anxiety"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#Disorder"/>
+        <owl:Class>
+          <owl:unionOf rdf:parseType="Collection">
+            <owl:Restriction>
+              <owl:onProperty rdf:resource="#dsm5code"/>
+              <owl:hasValue>300.xx</owl:hasValue>
+            </owl:Restriction>
+            <owl:Restriction>
+              <owl:onProperty rdf:resource="#icd11code"/>
+              <owl:hasValue>F41</owl:hasValue>
+            </owl:Restriction>
+          </owl:unionOf>
+        </owl:Class>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="#HighschoolComplete">
+  <rdfs:subClassOf rdf:resource="#EducationLevel"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#EducationLevel"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#educationLevel"/>
+          <owl:hasValue>highschoolComplete</owl:hasValue>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="#HighschoolIncomplete">
+  <rdfs:subClassOf rdf:resource="#EducationLevel"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#EducationLevel"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#educationLevel"/>
+          <owl:hasValue>highschoolIncomplete</owl:hasValue>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="#Housewife">
+  <rdfs:subClassOf rdf:resource="#EmploymentStatus"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#EmploymentStatus"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#employmentStatus"/>
+          <owl:hasValue>housewife</owl:hasValue>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="#Jewish">
+  <rdfs:subClassOf rdf:resource="#Religion"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#Religion"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#religion"/>
+          <owl:hasValue>jewish</owl:hasValue>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="#MajorDepression">
+  <rdfs:subClassOf rdf:resource="#Disorder"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Male">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdfs:subClassOf rdf:resource="#Gender"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#Gender"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#gender"/>
+          <owl:hasValue>male</owl:hasValue>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="#Married">
+  <rdfs:subClassOf rdf:resource="#MaritalStatus"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#MaritalStatus"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#maritalStatus"/>
+          <owl:hasValue>married</owl:hasValue>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="#Muslim">
+  <rdfs:subClassOf rdf:resource="#Religion"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#Religion"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#religion"/>
+          <owl:hasValue>muslim</owl:hasValue>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="#NeverStudied">
+  <rdfs:subClassOf rdf:resource="#EducationLevel"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#EducationLevel"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#educationLevel"/>
+          <owl:hasValue>neverStudied</owl:hasValue>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="#NewDiagnosis">
+  <rdfs:subClassOf rdf:resource="#Diagnosis"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#Diagnosis"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#diagnosisType"/>
+          <owl:hasValue>new</owl:hasValue>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="#OtherEmployement">
+  <rdfs:subClassOf rdf:resource="#EmploymentStatus"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#EmploymentStatus"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#employmentStatus"/>
+          <owl:hasValue>other</owl:hasValue>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="#OtherReligion">
+  <rdfs:subClassOf rdf:resource="#Religion"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#Religion"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#religion"/>
+          <owl:hasValue>other</owl:hasValue>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="#PassiveSensor">
+  <rdfs:subClassOf rdf:resource="#SensorThing"/>
+</owl:Class>
+
+<owl:Class rdf:about="#PreliminaryDiagnosis">
+  <rdfs:subClassOf rdf:resource="#Diagnosis"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#Diagnosis"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#diagnosisStatus"/>
+          <owl:hasValue>preliminary</owl:hasValue>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="#RecurrentMajorDepression">
+  <rdfs:subClassOf rdf:resource="#MajorDepression"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#Disorder"/>
+        <owl:Class>
+          <owl:unionOf rdf:parseType="Collection">
+            <owl:Restriction>
+              <owl:onProperty rdf:resource="#dsm5code"/>
+              <owl:hasValue>296.3x</owl:hasValue>
+            </owl:Restriction>
+            <owl:Restriction>
+              <owl:onProperty rdf:resource="#icd11code"/>
+              <owl:hasValue>F33</owl:hasValue>
+            </owl:Restriction>
+          </owl:unionOf>
+        </owl:Class>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="#RemissionDiagnosis">
+  <rdfs:subClassOf rdf:resource="#Diagnosis"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#Diagnosis"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#diagnosisStatus"/>
+          <owl:hasValue>remission</owl:hasValue>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="#Retired">
+  <rdfs:subClassOf rdf:resource="#EmploymentStatus"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#EmploymentStatus"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#employmentStatus"/>
+          <owl:hasValue>retired</owl:hasValue>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="#Self-employed">
+  <rdfs:subClassOf rdf:resource="#EmploymentStatus"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#EmploymentStatus"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#employmentStatus"/>
+          <owl:hasValue>selfEmployed</owl:hasValue>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="#Sick_leave">
+  <rdfs:subClassOf rdf:resource="#EmploymentStatus"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#EmploymentStatus"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#employmentStatus"/>
+          <owl:hasValue>sick-leave</owl:hasValue>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="#Single">
+  <rdfs:subClassOf rdf:resource="#MaritalStatus"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#MaritalStatus"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#maritalStatus"/>
+          <owl:hasValue>single</owl:hasValue>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="#SingleMajorDepression">
+  <rdfs:subClassOf rdf:resource="#MajorDepression"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#Disorder"/>
+        <owl:Class>
+          <owl:unionOf rdf:parseType="Collection">
+            <owl:Restriction>
+              <owl:onProperty rdf:resource="#dsm5code"/>
+              <owl:hasValue>296.2x</owl:hasValue>
+            </owl:Restriction>
+            <owl:Restriction>
+              <owl:onProperty rdf:resource="#icd11code"/>
+              <owl:hasValue>F32</owl:hasValue>
+            </owl:Restriction>
+          </owl:unionOf>
+        </owl:Class>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="#Spiritism">
+  <rdfs:subClassOf rdf:resource="#Religion"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#Religion"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#religion"/>
+          <owl:hasValue>spiritism</owl:hasValue>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="#State">
+  <rdfs:subClassOf rdf:resource="#SpatialThing"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Student">
+  <rdfs:subClassOf rdf:resource="#EmploymentStatus"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#EmploymentStatus"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#employmentStatus"/>
+          <owl:hasValue>student</owl:hasValue>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="#SubsequentDiagnosis">
+  <rdfs:subClassOf rdf:resource="#Diagnosis"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#Diagnosis"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#diagnosisType"/>
+          <owl:hasValue>subsequent</owl:hasValue>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="#Teenager">
+  <rdfs:subClassOf rdf:resource="#AgeGroup"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#AgeGroup"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#age"/>
+          <owl:someValuesFrom>
+            <rdfs:Datatype>
+              <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+              <owl:withRestrictions>
+                <rdf:Description>
+                  <rdf:first>
+                    <rdf:Description>
+                      <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#int">13</xsd:minInclusive>
+                    </rdf:Description>
+                  </rdf:first>
+                  <rdf:rest>
+                    <rdf:Description>
+                      <rdf:first>
+                        <rdf:Description>
+                          <xsd:maxExclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#int">18</xsd:maxExclusive>
+                        </rdf:Description>
+                      </rdf:first>
+                      <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                    </rdf:Description>
+                  </rdf:rest>
+                </rdf:Description>
+              </owl:withRestrictions>
+            </rdfs:Datatype>
+          </owl:someValuesFrom>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="#Unemployed">
+  <rdfs:subClassOf rdf:resource="#EmploymentStatus"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#EmploymentStatus"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#employmentStatus"/>
+          <owl:hasValue>unemployed</owl:hasValue>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="#Widower">
+  <rdfs:subClassOf rdf:resource="#MaritalStatus"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#MaritalStatus"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#maritalStatus"/>
+          <owl:hasValue>widower</owl:hasValue>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="#YoungAdult">
+  <rdfs:subClassOf rdf:resource="#AgeGroup"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#AgeGroup"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#age"/>
+          <owl:someValuesFrom>
+            <rdfs:Datatype>
+              <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+              <owl:withRestrictions>
+                <rdf:Description>
+                  <rdf:first>
+                    <rdf:Description>
+                      <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#int">18</xsd:minInclusive>
+                    </rdf:Description>
+                  </rdf:first>
+                  <rdf:rest>
+                    <rdf:Description>
+                      <rdf:first>
+                        <rdf:Description>
+                          <xsd:maxExclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#int">25</xsd:maxExclusive>
+                        </rdf:Description>
+                      </rdf:first>
+                      <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                    </rdf:Description>
+                  </rdf:rest>
+                </rdf:Description>
+              </owl:withRestrictions>
+            </rdfs:Datatype>
+          </owl:someValuesFrom>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<Country rdf:about="#BR">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</Country>
+
+<State rdf:about="#BR-BA">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</State>
+
+<City rdf:about="#BR-BA-Salvador">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</City>
+
+<State rdf:about="#BR-CE">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</State>
+
+<City rdf:about="#BR-CE-Morrinhos">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</City>
+
+<State rdf:about="#BR-MG">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</State>
+
+<City rdf:about="#BR-MG-Itajauba">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</City>
+
+<State rdf:about="#BR-RS">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</State>
+
+<City rdf:about="#BR-RS-São_Leopoldo">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</City>
+
+<Support rdf:about="#Family">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</Support>
+
+<Support rdf:about="#Friend">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</Support>
+
+<Disorder rdf:about="#Disorder-Recurrent-Major-Depression">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdf:type rdf:resource="#MajorDepression"/>
+  <rdf:type rdf:resource="#RecurrentMajorDepression"/>
+  <dsm5code rdf:datatype="http://www.w3.org/2001/XMLSchema#string">296.3x</dsm5code>
+</Disorder>
+
+<Disorder rdf:about="#Disorder-PostPartum-Single-Episode-Depression">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdf:type rdf:resource="#MajorDepression"/>
+  <rdf:type rdf:resource="#SingleMajorDepression"/>
+  <dsm5code rdf:datatype="http://www.w3.org/2001/XMLSchema#string">296.2x</dsm5code>
+</Disorder>
+
+<Disorder rdf:about="#Disorder-General-Anxiety">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdf:type rdf:resource="#Anxiety"/>
+  <rdf:type rdf:resource="#GeneralAnxiety"/>
+  <dsm5code rdf:datatype="http://www.w3.org/2001/XMLSchema#string">300.xx</dsm5code>
+</Disorder>
+
+<Medication rdf:about="#Medication-Clonazepam">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</Medication>
+
+<Medication rdf:about="#Medication-Sertraline">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</Medication>
+
+<Medication rdf:about="#Medication-Fluoxetine">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</Medication>
+
+<Medication rdf:about="#Medication-Escitalopram">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</Medication>
+
+<Medication rdf:about="#Medication-Diazepam">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</Medication>
+
+<Person rdf:about="#MorrinhosPerson1">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</Person>
+
+<SociodemographicProfile rdf:about="#MorrinhosPerson1_profile">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdf:type rdf:resource="#Elderly"/>
+  <rdf:type rdf:resource="#Widower"/>
+  <rdf:type rdf:resource="#Male"/>
+  <rdf:type rdf:resource="#HighschoolComplete"/>
+  <rdf:type rdf:resource="#Housewife"/>
+  <belongToPerson rdf:resource="#MorrinhosPerson1"/>
+  <age rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">65</age>
+  <educationLevel rdf:datatype="http://www.w3.org/2001/XMLSchema#string">highschoolComplete</educationLevel>
+  <employmentStatus rdf:datatype="http://www.w3.org/2001/XMLSchema#string">housewife</employmentStatus>
+  <gender rdf:datatype="http://www.w3.org/2001/XMLSchema#string">male</gender>
+  <maritalStatus rdf:datatype="http://www.w3.org/2001/XMLSchema#string">widower</maritalStatus>
+</SociodemographicProfile>
+
+<Diagnosis rdf:about="#MorrinhosPerson1_diagnosis">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdf:type rdf:resource="#NewDiagnosis"/>
+  <rdf:type rdf:resource="#ConfirmedDiagnosis"/>
+  <hasDisorder rdf:resource="#Disorder-Recurrent-Major-Depression"/>
+  <diagnosisStatus rdf:datatype="http://www.w3.org/2001/XMLSchema#string">confirmed</diagnosisStatus>
+  <diagnosisType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">new</diagnosisType>
+</Diagnosis>
+
+<MedicalAssessment rdf:about="#MorrinhosPerson1_assessment">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <belongToContext rdf:resource="#MorrinhosPerson1_context"/>
+  <hasDiagnosis rdf:resource="#MorrinhosPerson1_diagnosis"/>
+  <hasSociodemographicProfile rdf:resource="#MorrinhosPerson1_profile"/>
+</MedicalAssessment>
+
+<Context rdf:about="#MorrinhosPerson1_context">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdf:type rdf:resource="#Instant"/>
+  <happenedAtLocation rdf:resource="#BR-CE-Morrinhos"/>
+  <happenedAtLocation rdf:resource="#BR-CE"/>
+  <happenedAtTime rdf:resource="#MorrinhosPerson1_context"/>
+  <happenedWithPerson rdf:resource="#MorrinhosPerson1"/>
+  <happenedOn rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2019-11-04T12:05:23+01:00</happenedOn>
+</Context>
+
+<Person rdf:about="#MorrinhosPerson2">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</Person>
+
+<SociodemographicProfile rdf:about="#MorrinhosPerson2_profile">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdf:type rdf:resource="#Elderly"/>
+  <rdf:type rdf:resource="#Married"/>
+  <rdf:type rdf:resource="#Female"/>
+  <rdf:type rdf:resource="#FundamentalIncomplete"/>
+  <rdf:type rdf:resource="#Retired"/>
+  <belongToPerson rdf:resource="#MorrinhosPerson2"/>
+  <age rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">65</age>
+  <educationLevel rdf:datatype="http://www.w3.org/2001/XMLSchema#string">fundamentalIncomplete</educationLevel>
+  <employmentStatus rdf:datatype="http://www.w3.org/2001/XMLSchema#string">retired</employmentStatus>
+  <gender rdf:datatype="http://www.w3.org/2001/XMLSchema#string">female</gender>
+  <maritalStatus rdf:datatype="http://www.w3.org/2001/XMLSchema#string">married</maritalStatus>
+</SociodemographicProfile>
+
+<Diagnosis rdf:about="#MorrinhosPerson2_diagnosis">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdf:type rdf:resource="#NewDiagnosis"/>
+  <rdf:type rdf:resource="#ConfirmedDiagnosis"/>
+  <hasDisorder rdf:resource="#Disorder-Recurrent-Major-Depression"/>
+  <diagnosisStatus rdf:datatype="http://www.w3.org/2001/XMLSchema#string">confirmed</diagnosisStatus>
+  <diagnosisType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">new</diagnosisType>
+</Diagnosis>
+
+<MedicalAssessment rdf:about="#MorrinhosPerson2_assessment">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <belongToContext rdf:resource="#MorrinhosPerson2_context"/>
+  <hasDiagnosis rdf:resource="#MorrinhosPerson2_diagnosis"/>
+  <hasSociodemographicProfile rdf:resource="#MorrinhosPerson2_profile"/>
+</MedicalAssessment>
+
+<Context rdf:about="#MorrinhosPerson2_context">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdf:type rdf:resource="#Instant"/>
+  <happenedAtLocation rdf:resource="#BR-CE-Morrinhos"/>
+  <happenedAtLocation rdf:resource="#BR-CE"/>
+  <happenedAtTime rdf:resource="#MorrinhosPerson2_context"/>
+  <happenedWithPerson rdf:resource="#MorrinhosPerson2"/>
+  <happenedOn rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2019-11-04T12:05:23+01:00</happenedOn>
+</Context>
+
+<Person rdf:about="#MorrinhosPerson3">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</Person>
+
+<SociodemographicProfile rdf:about="#MorrinhosPerson3_profile">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdf:type rdf:resource="#Elderly"/>
+  <rdf:type rdf:resource="#Widower"/>
+  <rdf:type rdf:resource="#Male"/>
+  <rdf:type rdf:resource="#NeverStudied"/>
+  <rdf:type rdf:resource="#Retired"/>
+  <belongToPerson rdf:resource="#MorrinhosPerson3"/>
+  <age rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">65</age>
+  <educationLevel rdf:datatype="http://www.w3.org/2001/XMLSchema#string">neverStudied</educationLevel>
+  <employmentStatus rdf:datatype="http://www.w3.org/2001/XMLSchema#string">retired</employmentStatus>
+  <gender rdf:datatype="http://www.w3.org/2001/XMLSchema#string">male</gender>
+  <maritalStatus rdf:datatype="http://www.w3.org/2001/XMLSchema#string">widower</maritalStatus>
+</SociodemographicProfile>
+
+<Diagnosis rdf:about="#MorrinhosPerson3_diagnosis">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdf:type rdf:resource="#NewDiagnosis"/>
+  <rdf:type rdf:resource="#ConfirmedDiagnosis"/>
+  <hasDisorder rdf:resource="#Disorder-Recurrent-Major-Depression"/>
+  <diagnosisStatus rdf:datatype="http://www.w3.org/2001/XMLSchema#string">confirmed</diagnosisStatus>
+  <diagnosisType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">new</diagnosisType>
+</Diagnosis>
+
+<MedicalAssessment rdf:about="#MorrinhosPerson3_assessment">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <belongToContext rdf:resource="#MorrinhosPerson3_context"/>
+  <hasDiagnosis rdf:resource="#MorrinhosPerson3_diagnosis"/>
+  <hasSociodemographicProfile rdf:resource="#MorrinhosPerson3_profile"/>
+</MedicalAssessment>
+
+<Context rdf:about="#MorrinhosPerson3_context">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdf:type rdf:resource="#Instant"/>
+  <happenedAtLocation rdf:resource="#BR-CE-Morrinhos"/>
+  <happenedAtLocation rdf:resource="#BR-CE"/>
+  <happenedAtTime rdf:resource="#MorrinhosPerson3_context"/>
+  <happenedWithPerson rdf:resource="#MorrinhosPerson3"/>
+  <happenedOn rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2020-02-02T09:00:20+01:00</happenedOn>
+</Context>
+
+<Person rdf:about="#MorrinhosPerson4">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</Person>
+
+<SociodemographicProfile rdf:about="#MorrinhosPerson4_profile">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdf:type rdf:resource="#Elderly"/>
+  <rdf:type rdf:resource="#Widower"/>
+  <rdf:type rdf:resource="#Male"/>
+  <rdf:type rdf:resource="#FundamentalIncomplete"/>
+  <rdf:type rdf:resource="#Self-employed"/>
+  <belongToPerson rdf:resource="#MorrinhosPerson4"/>
+  <age rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">65</age>
+  <educationLevel rdf:datatype="http://www.w3.org/2001/XMLSchema#string">fundamentalIncomplete</educationLevel>
+  <employmentStatus rdf:datatype="http://www.w3.org/2001/XMLSchema#string">selfEmployed</employmentStatus>
+  <gender rdf:datatype="http://www.w3.org/2001/XMLSchema#string">male</gender>
+  <maritalStatus rdf:datatype="http://www.w3.org/2001/XMLSchema#string">widower</maritalStatus>
+</SociodemographicProfile>
+
+<Diagnosis rdf:about="#MorrinhosPerson4_diagnosis">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdf:type rdf:resource="#NewDiagnosis"/>
+  <rdf:type rdf:resource="#ConfirmedDiagnosis"/>
+  <hasDisorder rdf:resource="#Disorder-Recurrent-Major-Depression"/>
+  <diagnosisStatus rdf:datatype="http://www.w3.org/2001/XMLSchema#string">confirmed</diagnosisStatus>
+  <diagnosisType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">new</diagnosisType>
+</Diagnosis>
+
+<MedicalAssessment rdf:about="#MorrinhosPerson4_assessment">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <belongToContext rdf:resource="#MorrinhosPerson4_context"/>
+  <hasDiagnosis rdf:resource="#MorrinhosPerson4_diagnosis"/>
+  <hasSociodemographicProfile rdf:resource="#MorrinhosPerson4_profile"/>
+</MedicalAssessment>
+
+<Context rdf:about="#MorrinhosPerson4_context">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdf:type rdf:resource="#Instant"/>
+  <happenedAtLocation rdf:resource="#BR-CE-Morrinhos"/>
+  <happenedAtLocation rdf:resource="#BR-CE"/>
+  <happenedAtTime rdf:resource="#MorrinhosPerson4_context"/>
+  <happenedWithPerson rdf:resource="#MorrinhosPerson4"/>
+  <happenedOn rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2020-02-02T09:00:20+01:00</happenedOn>
+</Context>
+
+<Person rdf:about="#MorrinhosPerson5">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</Person>
+
+<SociodemographicProfile rdf:about="#MorrinhosPerson5_profile">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdf:type rdf:resource="#Elderly"/>
+  <rdf:type rdf:resource="#Widower"/>
+  <rdf:type rdf:resource="#Male"/>
+  <rdf:type rdf:resource="#NeverStudied"/>
+  <rdf:type rdf:resource="#Self-employed"/>
+  <belongToPerson rdf:resource="#MorrinhosPerson5"/>
+  <age rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">65</age>
+  <educationLevel rdf:datatype="http://www.w3.org/2001/XMLSchema#string">neverStudied</educationLevel>
+  <employmentStatus rdf:datatype="http://www.w3.org/2001/XMLSchema#string">selfEmployed</employmentStatus>
+  <gender rdf:datatype="http://www.w3.org/2001/XMLSchema#string">male</gender>
+  <maritalStatus rdf:datatype="http://www.w3.org/2001/XMLSchema#string">widower</maritalStatus>
+</SociodemographicProfile>
+
+<Diagnosis rdf:about="#MorrinhosPerson5_diagnosis">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdf:type rdf:resource="#NewDiagnosis"/>
+  <rdf:type rdf:resource="#ConfirmedDiagnosis"/>
+  <hasDisorder rdf:resource="#Disorder-Recurrent-Major-Depression"/>
+  <diagnosisStatus rdf:datatype="http://www.w3.org/2001/XMLSchema#string">confirmed</diagnosisStatus>
+  <diagnosisType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">new</diagnosisType>
+</Diagnosis>
+
+<MedicalAssessment rdf:about="#MorrinhosPerson5_assessment">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <belongToContext rdf:resource="#MorrinhosPerson5_context"/>
+  <hasDiagnosis rdf:resource="#MorrinhosPerson5_diagnosis"/>
+  <hasSociodemographicProfile rdf:resource="#MorrinhosPerson5_profile"/>
+</MedicalAssessment>
+
+<Context rdf:about="#MorrinhosPerson5_context">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdf:type rdf:resource="#Instant"/>
+  <happenedAtLocation rdf:resource="#BR-CE-Morrinhos"/>
+  <happenedAtLocation rdf:resource="#BR-CE"/>
+  <happenedAtTime rdf:resource="#MorrinhosPerson5_context"/>
+  <happenedWithPerson rdf:resource="#MorrinhosPerson5"/>
+  <happenedOn rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2019-11-04T12:05:23+01:00</happenedOn>
+</Context>
+
+<Person rdf:about="#MorrinhosPerson6">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</Person>
+
+<SociodemographicProfile rdf:about="#MorrinhosPerson6_profile">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdf:type rdf:resource="#Elderly"/>
+  <rdf:type rdf:resource="#Divorced"/>
+  <rdf:type rdf:resource="#Female"/>
+  <rdf:type rdf:resource="#FundamentalIncomplete"/>
+  <rdf:type rdf:resource="#Retired"/>
+  <belongToPerson rdf:resource="#MorrinhosPerson6"/>
+  <age rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">65</age>
+  <educationLevel rdf:datatype="http://www.w3.org/2001/XMLSchema#string">fundamentalIncomplete</educationLevel>
+  <employmentStatus rdf:datatype="http://www.w3.org/2001/XMLSchema#string">retired</employmentStatus>
+  <gender rdf:datatype="http://www.w3.org/2001/XMLSchema#string">female</gender>
+  <maritalStatus rdf:datatype="http://www.w3.org/2001/XMLSchema#string">divorced</maritalStatus>
+</SociodemographicProfile>
+
+<Diagnosis rdf:about="#MorrinhosPerson6_diagnosis">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdf:type rdf:resource="#NewDiagnosis"/>
+  <rdf:type rdf:resource="#ConfirmedDiagnosis"/>
+  <hasDisorder rdf:resource="#Disorder-Recurrent-Major-Depression"/>
+  <diagnosisStatus rdf:datatype="http://www.w3.org/2001/XMLSchema#string">confirmed</diagnosisStatus>
+  <diagnosisType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">new</diagnosisType>
+</Diagnosis>
+
+<MedicalAssessment rdf:about="#MorrinhosPerson6_assessment">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <belongToContext rdf:resource="#MorrinhosPerson6_context"/>
+  <hasDiagnosis rdf:resource="#MorrinhosPerson6_diagnosis"/>
+  <hasSociodemographicProfile rdf:resource="#MorrinhosPerson6_profile"/>
+</MedicalAssessment>
+
+<Context rdf:about="#MorrinhosPerson6_context">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdf:type rdf:resource="#Instant"/>
+  <happenedAtLocation rdf:resource="#BR-CE-Morrinhos"/>
+  <happenedAtLocation rdf:resource="#BR-CE"/>
+  <happenedAtTime rdf:resource="#MorrinhosPerson6_context"/>
+  <happenedWithPerson rdf:resource="#MorrinhosPerson6"/>
+  <happenedOn rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2019-11-04T12:05:23+01:00</happenedOn>
+</Context>
+
+<Person rdf:about="#MorrinhosPerson7">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</Person>
+
+<SociodemographicProfile rdf:about="#MorrinhosPerson7_profile">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdf:type rdf:resource="#Elderly"/>
+  <rdf:type rdf:resource="#Widower"/>
+  <rdf:type rdf:resource="#Female"/>
+  <rdf:type rdf:resource="#FundamentalIncomplete"/>
+  <rdf:type rdf:resource="#Self-employed"/>
+  <belongToPerson rdf:resource="#MorrinhosPerson7"/>
+  <age rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">65</age>
+  <educationLevel rdf:datatype="http://www.w3.org/2001/XMLSchema#string">fundamentalIncomplete</educationLevel>
+  <employmentStatus rdf:datatype="http://www.w3.org/2001/XMLSchema#string">selfEmployed</employmentStatus>
+  <gender rdf:datatype="http://www.w3.org/2001/XMLSchema#string">female</gender>
+  <maritalStatus rdf:datatype="http://www.w3.org/2001/XMLSchema#string">widower</maritalStatus>
+</SociodemographicProfile>
+
+<Diagnosis rdf:about="#MorrinhosPerson7_diagnosis">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdf:type rdf:resource="#NewDiagnosis"/>
+  <rdf:type rdf:resource="#ConfirmedDiagnosis"/>
+  <hasDisorder rdf:resource="#Disorder-Recurrent-Major-Depression"/>
+  <diagnosisStatus rdf:datatype="http://www.w3.org/2001/XMLSchema#string">confirmed</diagnosisStatus>
+  <diagnosisType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">new</diagnosisType>
+</Diagnosis>
+
+<MedicalAssessment rdf:about="#MorrinhosPerson7_assessment">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <belongToContext rdf:resource="#MorrinhosPerson7_context"/>
+  <hasDiagnosis rdf:resource="#MorrinhosPerson7_diagnosis"/>
+  <hasSociodemographicProfile rdf:resource="#MorrinhosPerson7_profile"/>
+</MedicalAssessment>
+
+<Context rdf:about="#MorrinhosPerson7_context">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdf:type rdf:resource="#Instant"/>
+  <happenedAtLocation rdf:resource="#BR-CE-Morrinhos"/>
+  <happenedAtLocation rdf:resource="#BR-CE"/>
+  <happenedAtTime rdf:resource="#MorrinhosPerson7_context"/>
+  <happenedWithPerson rdf:resource="#MorrinhosPerson7"/>
+  <happenedOn rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2020-02-02T09:00:20+01:00</happenedOn>
+</Context>
+
+<Person rdf:about="#MorrinhosPerson8">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</Person>
+
+<SociodemographicProfile rdf:about="#MorrinhosPerson8_profile">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdf:type rdf:resource="#Elderly"/>
+  <rdf:type rdf:resource="#Widower"/>
+  <rdf:type rdf:resource="#Female"/>
+  <rdf:type rdf:resource="#CollegeComplete"/>
+  <rdf:type rdf:resource="#Housewife"/>
+  <belongToPerson rdf:resource="#MorrinhosPerson8"/>
+  <age rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">65</age>
+  <educationLevel rdf:datatype="http://www.w3.org/2001/XMLSchema#string">collegeComplete</educationLevel>
+  <employmentStatus rdf:datatype="http://www.w3.org/2001/XMLSchema#string">housewife</employmentStatus>
+  <gender rdf:datatype="http://www.w3.org/2001/XMLSchema#string">female</gender>
+  <maritalStatus rdf:datatype="http://www.w3.org/2001/XMLSchema#string">widower</maritalStatus>
+</SociodemographicProfile>
+
+<Diagnosis rdf:about="#MorrinhosPerson8_diagnosis">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdf:type rdf:resource="#NewDiagnosis"/>
+  <rdf:type rdf:resource="#ConfirmedDiagnosis"/>
+  <hasDisorder rdf:resource="#Disorder-Recurrent-Major-Depression"/>
+  <diagnosisStatus rdf:datatype="http://www.w3.org/2001/XMLSchema#string">confirmed</diagnosisStatus>
+  <diagnosisType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">new</diagnosisType>
+</Diagnosis>
+
+<MedicalAssessment rdf:about="#MorrinhosPerson8_assessment">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <belongToContext rdf:resource="#MorrinhosPerson8_context"/>
+  <hasDiagnosis rdf:resource="#MorrinhosPerson8_diagnosis"/>
+  <hasSociodemographicProfile rdf:resource="#MorrinhosPerson8_profile"/>
+</MedicalAssessment>
+
+<Context rdf:about="#MorrinhosPerson8_context">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdf:type rdf:resource="#Instant"/>
+  <happenedAtLocation rdf:resource="#BR-CE-Morrinhos"/>
+  <happenedAtLocation rdf:resource="#BR-CE"/>
+  <happenedAtTime rdf:resource="#MorrinhosPerson8_context"/>
+  <happenedWithPerson rdf:resource="#MorrinhosPerson8"/>
+  <happenedOn rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2019-11-04T12:05:23+01:00</happenedOn>
+</Context>
+
+<Person rdf:about="#MorrinhosPerson9">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</Person>
+
+<SociodemographicProfile rdf:about="#MorrinhosPerson9_profile">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdf:type rdf:resource="#Elderly"/>
+  <rdf:type rdf:resource="#Single"/>
+  <rdf:type rdf:resource="#Female"/>
+  <rdf:type rdf:resource="#NeverStudied"/>
+  <rdf:type rdf:resource="#Retired"/>
+  <belongToPerson rdf:resource="#MorrinhosPerson9"/>
+  <age rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">65</age>
+  <educationLevel rdf:datatype="http://www.w3.org/2001/XMLSchema#string">neverStudied</educationLevel>
+  <employmentStatus rdf:datatype="http://www.w3.org/2001/XMLSchema#string">retired</employmentStatus>
+  <gender rdf:datatype="http://www.w3.org/2001/XMLSchema#string">female</gender>
+  <maritalStatus rdf:datatype="http://www.w3.org/2001/XMLSchema#string">single</maritalStatus>
+</SociodemographicProfile>
+
+<Diagnosis rdf:about="#MorrinhosPerson9_diagnosis">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdf:type rdf:resource="#NewDiagnosis"/>
+  <rdf:type rdf:resource="#ConfirmedDiagnosis"/>
+  <hasDisorder rdf:resource="#Disorder-Recurrent-Major-Depression"/>
+  <diagnosisStatus rdf:datatype="http://www.w3.org/2001/XMLSchema#string">confirmed</diagnosisStatus>
+  <diagnosisType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">new</diagnosisType>
+</Diagnosis>
+
+<MedicalAssessment rdf:about="#MorrinhosPerson9_assessment">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <belongToContext rdf:resource="#MorrinhosPerson9_context"/>
+  <hasDiagnosis rdf:resource="#MorrinhosPerson9_diagnosis"/>
+  <hasSociodemographicProfile rdf:resource="#MorrinhosPerson9_profile"/>
+</MedicalAssessment>
+
+<Context rdf:about="#MorrinhosPerson9_context">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdf:type rdf:resource="#Instant"/>
+  <happenedAtLocation rdf:resource="#BR-CE-Morrinhos"/>
+  <happenedAtLocation rdf:resource="#BR-CE"/>
+  <happenedAtTime rdf:resource="#MorrinhosPerson9_context"/>
+  <happenedWithPerson rdf:resource="#MorrinhosPerson9"/>
+  <happenedOn rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2020-02-02T09:00:20+01:00</happenedOn>
+</Context>
+
+<Person rdf:about="#MorrinhosPerson10">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</Person>
+
+<SociodemographicProfile rdf:about="#MorrinhosPerson10_profile">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdf:type rdf:resource="#Elderly"/>
+  <rdf:type rdf:resource="#Married"/>
+  <rdf:type rdf:resource="#Male"/>
+  <rdf:type rdf:resource="#NeverStudied"/>
+  <rdf:type rdf:resource="#Retired"/>
+  <belongToPerson rdf:resource="#MorrinhosPerson10"/>
+  <age rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">65</age>
+  <educationLevel rdf:datatype="http://www.w3.org/2001/XMLSchema#string">neverStudied</educationLevel>
+  <employmentStatus rdf:datatype="http://www.w3.org/2001/XMLSchema#string">retired</employmentStatus>
+  <gender rdf:datatype="http://www.w3.org/2001/XMLSchema#string">male</gender>
+  <maritalStatus rdf:datatype="http://www.w3.org/2001/XMLSchema#string">married</maritalStatus>
+</SociodemographicProfile>
+
+<Diagnosis rdf:about="#MorrinhosPerson10_diagnosis">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdf:type rdf:resource="#NewDiagnosis"/>
+  <rdf:type rdf:resource="#ConfirmedDiagnosis"/>
+  <hasDisorder rdf:resource="#Disorder-Recurrent-Major-Depression"/>
+  <diagnosisStatus rdf:datatype="http://www.w3.org/2001/XMLSchema#string">confirmed</diagnosisStatus>
+  <diagnosisType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">new</diagnosisType>
+</Diagnosis>
+
+<MedicalAssessment rdf:about="#MorrinhosPerson10_assessment">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <belongToContext rdf:resource="#MorrinhosPerson10_context"/>
+  <hasDiagnosis rdf:resource="#MorrinhosPerson10_diagnosis"/>
+  <hasSociodemographicProfile rdf:resource="#MorrinhosPerson10_profile"/>
+</MedicalAssessment>
+
+<Context rdf:about="#MorrinhosPerson10_context">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdf:type rdf:resource="#Instant"/>
+  <happenedAtLocation rdf:resource="#BR-CE-Morrinhos"/>
+  <happenedAtLocation rdf:resource="#BR-CE"/>
+  <happenedAtTime rdf:resource="#MorrinhosPerson10_context"/>
+  <happenedWithPerson rdf:resource="#MorrinhosPerson10"/>
+  <happenedOn rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2020-02-02T09:00:20+01:00</happenedOn>
+</Context>
+
+<Person rdf:about="#MorrinhosPerson11">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</Person>
+
+<SociodemographicProfile rdf:about="#MorrinhosPerson11_profile">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdf:type rdf:resource="#Elderly"/>
+  <rdf:type rdf:resource="#Married"/>
+  <rdf:type rdf:resource="#Female"/>
+  <rdf:type rdf:resource="#HighschoolComplete"/>
+  <rdf:type rdf:resource="#Housewife"/>
+  <belongToPerson rdf:resource="#MorrinhosPerson11"/>
+  <age rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">65</age>
+  <educationLevel rdf:datatype="http://www.w3.org/2001/XMLSchema#string">highschoolComplete</educationLevel>
+  <employmentStatus rdf:datatype="http://www.w3.org/2001/XMLSchema#string">housewife</employmentStatus>
+  <gender rdf:datatype="http://www.w3.org/2001/XMLSchema#string">female</gender>
+  <maritalStatus rdf:datatype="http://www.w3.org/2001/XMLSchema#string">married</maritalStatus>
+</SociodemographicProfile>
+
+<Diagnosis rdf:about="#MorrinhosPerson11_diagnosis">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdf:type rdf:resource="#NewDiagnosis"/>
+  <rdf:type rdf:resource="#ConfirmedDiagnosis"/>
+  <hasDisorder rdf:resource="#Disorder-Recurrent-Major-Depression"/>
+  <diagnosisStatus rdf:datatype="http://www.w3.org/2001/XMLSchema#string">confirmed</diagnosisStatus>
+  <diagnosisType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">new</diagnosisType>
+</Diagnosis>
+
+<MedicalAssessment rdf:about="#MorrinhosPerson11_assessment">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <belongToContext rdf:resource="#MorrinhosPerson11_context"/>
+  <hasDiagnosis rdf:resource="#MorrinhosPerson11_diagnosis"/>
+  <hasSociodemographicProfile rdf:resource="#MorrinhosPerson11_profile"/>
+</MedicalAssessment>
+
+<Context rdf:about="#MorrinhosPerson11_context">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdf:type rdf:resource="#Instant"/>
+  <happenedAtLocation rdf:resource="#BR-CE-Morrinhos"/>
+  <happenedAtLocation rdf:resource="#BR-CE"/>
+  <happenedAtTime rdf:resource="#MorrinhosPerson11_context"/>
+  <happenedWithPerson rdf:resource="#MorrinhosPerson11"/>
+  <happenedOn rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2019-11-04T12:05:23+01:00</happenedOn>
+</Context>
+
+<Person rdf:about="#MorrinhosPerson12">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</Person>
+
+<SociodemographicProfile rdf:about="#MorrinhosPerson12_profile">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdf:type rdf:resource="#Elderly"/>
+  <rdf:type rdf:resource="#Married"/>
+  <rdf:type rdf:resource="#Female"/>
+  <rdf:type rdf:resource="#FundamentalIncomplete"/>
+  <rdf:type rdf:resource="#Retired"/>
+  <belongToPerson rdf:resource="#MorrinhosPerson12"/>
+  <age rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">65</age>
+  <educationLevel rdf:datatype="http://www.w3.org/2001/XMLSchema#string">fundamentalIncomplete</educationLevel>
+  <employmentStatus rdf:datatype="http://www.w3.org/2001/XMLSchema#string">retired</employmentStatus>
+  <gender rdf:datatype="http://www.w3.org/2001/XMLSchema#string">female</gender>
+  <maritalStatus rdf:datatype="http://www.w3.org/2001/XMLSchema#string">married</maritalStatus>
+</SociodemographicProfile>
+
+<Diagnosis rdf:about="#MorrinhosPerson12_diagnosis">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdf:type rdf:resource="#NewDiagnosis"/>
+  <rdf:type rdf:resource="#ConfirmedDiagnosis"/>
+  <hasDisorder rdf:resource="#Disorder-Recurrent-Major-Depression"/>
+  <diagnosisStatus rdf:datatype="http://www.w3.org/2001/XMLSchema#string">confirmed</diagnosisStatus>
+  <diagnosisType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">new</diagnosisType>
+</Diagnosis>
+
+<MedicalAssessment rdf:about="#MorrinhosPerson12_assessment">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <belongToContext rdf:resource="#MorrinhosPerson12_context"/>
+  <hasDiagnosis rdf:resource="#MorrinhosPerson12_diagnosis"/>
+  <hasSociodemographicProfile rdf:resource="#MorrinhosPerson12_profile"/>
+</MedicalAssessment>
+
+<Context rdf:about="#MorrinhosPerson12_context">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdf:type rdf:resource="#Instant"/>
+  <happenedAtLocation rdf:resource="#BR-CE-Morrinhos"/>
+  <happenedAtLocation rdf:resource="#BR-CE"/>
+  <happenedAtTime rdf:resource="#MorrinhosPerson12_context"/>
+  <happenedWithPerson rdf:resource="#MorrinhosPerson12"/>
+  <happenedOn rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2020-02-02T09:00:20+01:00</happenedOn>
+</Context>
+
+<Person rdf:about="#ItajubaComorbidPerson1">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</Person>
+
+<SociodemographicProfile rdf:about="#ItajubaComorbidPerson1_profile">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdf:type rdf:resource="#Adult"/>
+  <rdf:type rdf:resource="#Single"/>
+  <rdf:type rdf:resource="#Male"/>
+  <rdf:type rdf:resource="#EduUnknown"/>
+  <rdf:type rdf:resource="#Student"/>
+  <belongToPerson rdf:resource="#ItajubaComorbidPerson1"/>
+  <age rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">45</age>
+  <educationLevel rdf:datatype="http://www.w3.org/2001/XMLSchema#string">unknown</educationLevel>
+  <employmentStatus rdf:datatype="http://www.w3.org/2001/XMLSchema#string">student</employmentStatus>
+  <gender rdf:datatype="http://www.w3.org/2001/XMLSchema#string">male</gender>
+  <maritalStatus rdf:datatype="http://www.w3.org/2001/XMLSchema#string">single</maritalStatus>
+</SociodemographicProfile>
+
+<Diagnosis rdf:about="#ItajubaComorbidPerson1_diagnosis">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdf:type rdf:resource="#NewDiagnosis"/>
+  <rdf:type rdf:resource="#ConfirmedDiagnosis"/>
+  <hasDisorder rdf:resource="#Disorder-General-Anxiety"/>
+  <hasDisorder rdf:resource="#Disorder-Recurrent-Major-Depression"/>
+  <hasPrescribedMedication rdf:resource="#Medication-Sertraline"/>
+  <diagnosisStatus rdf:datatype="http://www.w3.org/2001/XMLSchema#string">confirmed</diagnosisStatus>
+  <diagnosisType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">new</diagnosisType>
+</Diagnosis>
+
+<MedicalAssessment rdf:about="#ItajubaComorbidPerson1_assessment">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <belongToContext rdf:resource="#ItajubaComorbidPerson1_context"/>
+  <hasDiagnosis rdf:resource="#ItajubaComorbidPerson1_diagnosis"/>
+  <hasSociodemographicProfile rdf:resource="#ItajubaComorbidPerson1_profile"/>
+</MedicalAssessment>
+
+<Context rdf:about="#ItajubaComorbidPerson1_context">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdf:type rdf:resource="#Instant"/>
+  <happenedAtLocation rdf:resource="#BR-MG"/>
+  <happenedAtLocation rdf:resource="#BR-MG-Itajauba"/>
+  <happenedAtTime rdf:resource="#ItajubaComorbidPerson1_context"/>
+  <happenedWithPerson rdf:resource="#ItajubaComorbidPerson1"/>
+  <happenedOn rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2020-02-02T09:00:20+01:00</happenedOn>
+</Context>
+
+<Diagnosis rdf:about="#ItajubaComorbidPerson1_remission_diagnosis">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdf:type rdf:resource="#NewDiagnosis"/>
+  <rdf:type rdf:resource="#RemissionDiagnosis"/>
+  <hasDisorder rdf:resource="#Disorder-Recurrent-Major-Depression"/>
+  <hasDisorder rdf:resource="#Disorder-General-Anxiety"/>
+  <diagnosisStatus rdf:datatype="http://www.w3.org/2001/XMLSchema#string">remission</diagnosisStatus>
+  <diagnosisType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">new</diagnosisType>
+</Diagnosis>
+
+<MedicalAssessment rdf:about="#ItajubaComorbidPerson1_remission_assessment">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <belongToContext rdf:resource="#ItajubaComorbidPerson1_remission_context"/>
+  <hasDiagnosis rdf:resource="#ItajubaComorbidPerson1_remission_diagnosis"/>
+  <hasSociodemographicProfile rdf:resource="#ItajubaComorbidPerson1_profile"/>
+</MedicalAssessment>
+
+<Context rdf:about="#ItajubaComorbidPerson1_remission_context">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdf:type rdf:resource="#Instant"/>
+  <happenedAtLocation rdf:resource="#BR-MG"/>
+  <happenedAtLocation rdf:resource="#BR-MG-Itajauba"/>
+  <happenedAtTime rdf:resource="#ItajubaComorbidPerson1_remission_context"/>
+  <happenedWithPerson rdf:resource="#ItajubaComorbidPerson1"/>
+  <happenedOn rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2020-03-01T12:05:23+01:00</happenedOn>
+</Context>
+
+<Person rdf:about="#ItajubaComorbidPerson2">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</Person>
+
+<SociodemographicProfile rdf:about="#ItajubaComorbidPerson2_profile">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdf:type rdf:resource="#Adult"/>
+  <rdf:type rdf:resource="#Married"/>
+  <rdf:type rdf:resource="#Male"/>
+  <rdf:type rdf:resource="#EduUnknown"/>
+  <rdf:type rdf:resource="#Employed"/>
+  <belongToPerson rdf:resource="#ItajubaComorbidPerson2"/>
+  <age rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">45</age>
+  <educationLevel rdf:datatype="http://www.w3.org/2001/XMLSchema#string">unknown</educationLevel>
+  <employmentStatus rdf:datatype="http://www.w3.org/2001/XMLSchema#string">employed</employmentStatus>
+  <gender rdf:datatype="http://www.w3.org/2001/XMLSchema#string">male</gender>
+  <maritalStatus rdf:datatype="http://www.w3.org/2001/XMLSchema#string">married</maritalStatus>
+</SociodemographicProfile>
+
+<Diagnosis rdf:about="#ItajubaComorbidPerson2_diagnosis">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdf:type rdf:resource="#NewDiagnosis"/>
+  <rdf:type rdf:resource="#ConfirmedDiagnosis"/>
+  <hasDisorder rdf:resource="#Disorder-General-Anxiety"/>
+  <hasDisorder rdf:resource="#Disorder-Recurrent-Major-Depression"/>
+  <hasPrescribedMedication rdf:resource="#Medication-Fluoxetine"/>
+  <diagnosisStatus rdf:datatype="http://www.w3.org/2001/XMLSchema#string">confirmed</diagnosisStatus>
+  <diagnosisType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">new</diagnosisType>
+</Diagnosis>
+
+<MedicalAssessment rdf:about="#ItajubaComorbidPerson2_assessment">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <belongToContext rdf:resource="#ItajubaComorbidPerson2_context"/>
+  <hasDiagnosis rdf:resource="#ItajubaComorbidPerson2_diagnosis"/>
+  <hasSociodemographicProfile rdf:resource="#ItajubaComorbidPerson2_profile"/>
+</MedicalAssessment>
+
+<Context rdf:about="#ItajubaComorbidPerson2_context">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdf:type rdf:resource="#Instant"/>
+  <happenedAtLocation rdf:resource="#BR-MG"/>
+  <happenedAtLocation rdf:resource="#BR-MG-Itajauba"/>
+  <happenedAtTime rdf:resource="#ItajubaComorbidPerson2_context"/>
+  <happenedWithPerson rdf:resource="#ItajubaComorbidPerson2"/>
+  <happenedOn rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2019-11-04T12:05:23+01:00</happenedOn>
+</Context>
+
+<Person rdf:about="#ItajubaComorbidPerson3">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</Person>
+
+<SociodemographicProfile rdf:about="#ItajubaComorbidPerson3_profile">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdf:type rdf:resource="#YoungAdult"/>
+  <rdf:type rdf:resource="#Divorced"/>
+  <rdf:type rdf:resource="#Female"/>
+  <rdf:type rdf:resource="#EduUnknown"/>
+  <rdf:type rdf:resource="#Housewife"/>
+  <belongToPerson rdf:resource="#ItajubaComorbidPerson3"/>
+  <age rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">18</age>
+  <educationLevel rdf:datatype="http://www.w3.org/2001/XMLSchema#string">unknown</educationLevel>
+  <employmentStatus rdf:datatype="http://www.w3.org/2001/XMLSchema#string">housewife</employmentStatus>
+  <gender rdf:datatype="http://www.w3.org/2001/XMLSchema#string">female</gender>
+  <maritalStatus rdf:datatype="http://www.w3.org/2001/XMLSchema#string">divorced</maritalStatus>
+</SociodemographicProfile>
+
+<Diagnosis rdf:about="#ItajubaComorbidPerson3_diagnosis">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdf:type rdf:resource="#NewDiagnosis"/>
+  <rdf:type rdf:resource="#ConfirmedDiagnosis"/>
+  <hasDisorder rdf:resource="#Disorder-General-Anxiety"/>
+  <hasDisorder rdf:resource="#Disorder-Recurrent-Major-Depression"/>
+  <hasPrescribedMedication rdf:resource="#Medication-Clonazepam"/>
+  <diagnosisStatus rdf:datatype="http://www.w3.org/2001/XMLSchema#string">confirmed</diagnosisStatus>
+  <diagnosisType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">new</diagnosisType>
+</Diagnosis>
+
+<MedicalAssessment rdf:about="#ItajubaComorbidPerson3_assessment">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <belongToContext rdf:resource="#ItajubaComorbidPerson3_context"/>
+  <hasDiagnosis rdf:resource="#ItajubaComorbidPerson3_diagnosis"/>
+  <hasSociodemographicProfile rdf:resource="#ItajubaComorbidPerson3_profile"/>
+</MedicalAssessment>
+
+<Context rdf:about="#ItajubaComorbidPerson3_context">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdf:type rdf:resource="#Instant"/>
+  <happenedAtLocation rdf:resource="#BR-MG"/>
+  <happenedAtLocation rdf:resource="#BR-MG-Itajauba"/>
+  <happenedAtTime rdf:resource="#ItajubaComorbidPerson3_context"/>
+  <happenedWithPerson rdf:resource="#ItajubaComorbidPerson3"/>
+  <happenedOn rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2020-02-02T09:00:20+01:00</happenedOn>
+</Context>
+
+<Person rdf:about="#ItajubaComorbidPerson4">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</Person>
+
+<SociodemographicProfile rdf:about="#ItajubaComorbidPerson4_profile">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdf:type rdf:resource="#Adult"/>
+  <rdf:type rdf:resource="#Married"/>
+  <rdf:type rdf:resource="#Male"/>
+  <rdf:type rdf:resource="#EduUnknown"/>
+  <rdf:type rdf:resource="#Student"/>
+  <belongToPerson rdf:resource="#ItajubaComorbidPerson4"/>
+  <age rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">55</age>
+  <educationLevel rdf:datatype="http://www.w3.org/2001/XMLSchema#string">unknown</educationLevel>
+  <employmentStatus rdf:datatype="http://www.w3.org/2001/XMLSchema#string">student</employmentStatus>
+  <gender rdf:datatype="http://www.w3.org/2001/XMLSchema#string">male</gender>
+  <maritalStatus rdf:datatype="http://www.w3.org/2001/XMLSchema#string">married</maritalStatus>
+</SociodemographicProfile>
+
+<Diagnosis rdf:about="#ItajubaComorbidPerson4_diagnosis">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdf:type rdf:resource="#NewDiagnosis"/>
+  <rdf:type rdf:resource="#ConfirmedDiagnosis"/>
+  <hasDisorder rdf:resource="#Disorder-General-Anxiety"/>
+  <hasDisorder rdf:resource="#Disorder-Recurrent-Major-Depression"/>
+  <hasPrescribedMedication rdf:resource="#Medication-Fluoxetine"/>
+  <diagnosisStatus rdf:datatype="http://www.w3.org/2001/XMLSchema#string">confirmed</diagnosisStatus>
+  <diagnosisType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">new</diagnosisType>
+</Diagnosis>
+
+<MedicalAssessment rdf:about="#ItajubaComorbidPerson4_assessment">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <belongToContext rdf:resource="#ItajubaComorbidPerson4_context"/>
+  <hasDiagnosis rdf:resource="#ItajubaComorbidPerson4_diagnosis"/>
+  <hasSociodemographicProfile rdf:resource="#ItajubaComorbidPerson4_profile"/>
+</MedicalAssessment>
+
+<Context rdf:about="#ItajubaComorbidPerson4_context">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdf:type rdf:resource="#Instant"/>
+  <happenedAtLocation rdf:resource="#BR-MG"/>
+  <happenedAtLocation rdf:resource="#BR-MG-Itajauba"/>
+  <happenedAtTime rdf:resource="#ItajubaComorbidPerson4_context"/>
+  <happenedWithPerson rdf:resource="#ItajubaComorbidPerson4"/>
+  <happenedOn rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2020-02-02T09:00:20+01:00</happenedOn>
+</Context>
+
+<Person rdf:about="#ItajubaComorbidPerson5">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</Person>
+
+<SociodemographicProfile rdf:about="#ItajubaComorbidPerson5_profile">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdf:type rdf:resource="#Adult"/>
+  <rdf:type rdf:resource="#Married"/>
+  <rdf:type rdf:resource="#Female"/>
+  <rdf:type rdf:resource="#EduUnknown"/>
+  <rdf:type rdf:resource="#Housewife"/>
+  <belongToPerson rdf:resource="#ItajubaComorbidPerson5"/>
+  <age rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">35</age>
+  <educationLevel rdf:datatype="http://www.w3.org/2001/XMLSchema#string">unknown</educationLevel>
+  <employmentStatus rdf:datatype="http://www.w3.org/2001/XMLSchema#string">housewife</employmentStatus>
+  <gender rdf:datatype="http://www.w3.org/2001/XMLSchema#string">female</gender>
+  <maritalStatus rdf:datatype="http://www.w3.org/2001/XMLSchema#string">married</maritalStatus>
+</SociodemographicProfile>
+
+<Diagnosis rdf:about="#ItajubaComorbidPerson5_diagnosis">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdf:type rdf:resource="#NewDiagnosis"/>
+  <rdf:type rdf:resource="#ConfirmedDiagnosis"/>
+  <hasDisorder rdf:resource="#Disorder-General-Anxiety"/>
+  <hasDisorder rdf:resource="#Disorder-Recurrent-Major-Depression"/>
+  <hasPrescribedMedication rdf:resource="#Medication-Clonazepam"/>
+  <diagnosisStatus rdf:datatype="http://www.w3.org/2001/XMLSchema#string">confirmed</diagnosisStatus>
+  <diagnosisType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">new</diagnosisType>
+</Diagnosis>
+
+<MedicalAssessment rdf:about="#ItajubaComorbidPerson5_assessment">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <belongToContext rdf:resource="#ItajubaComorbidPerson5_context"/>
+  <hasDiagnosis rdf:resource="#ItajubaComorbidPerson5_diagnosis"/>
+  <hasSociodemographicProfile rdf:resource="#ItajubaComorbidPerson5_profile"/>
+</MedicalAssessment>
+
+<Context rdf:about="#ItajubaComorbidPerson5_context">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdf:type rdf:resource="#Instant"/>
+  <happenedAtLocation rdf:resource="#BR-MG"/>
+  <happenedAtLocation rdf:resource="#BR-MG-Itajauba"/>
+  <happenedAtTime rdf:resource="#ItajubaComorbidPerson5_context"/>
+  <happenedWithPerson rdf:resource="#ItajubaComorbidPerson5"/>
+  <happenedOn rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2020-02-02T09:00:20+01:00</happenedOn>
+</Context>
+
+<Person rdf:about="#ItajubaComorbidPerson6">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</Person>
+
+<SociodemographicProfile rdf:about="#ItajubaComorbidPerson6_profile">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdf:type rdf:resource="#Elderly"/>
+  <rdf:type rdf:resource="#Cohabiting"/>
+  <rdf:type rdf:resource="#Female"/>
+  <rdf:type rdf:resource="#EduUnknown"/>
+  <rdf:type rdf:resource="#Housewife"/>
+  <belongToPerson rdf:resource="#ItajubaComorbidPerson6"/>
+  <age rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">65</age>
+  <educationLevel rdf:datatype="http://www.w3.org/2001/XMLSchema#string">unknown</educationLevel>
+  <employmentStatus rdf:datatype="http://www.w3.org/2001/XMLSchema#string">housewife</employmentStatus>
+  <gender rdf:datatype="http://www.w3.org/2001/XMLSchema#string">female</gender>
+  <maritalStatus rdf:datatype="http://www.w3.org/2001/XMLSchema#string">cohabiting</maritalStatus>
+</SociodemographicProfile>
+
+<Diagnosis rdf:about="#ItajubaComorbidPerson6_diagnosis">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdf:type rdf:resource="#NewDiagnosis"/>
+  <rdf:type rdf:resource="#ConfirmedDiagnosis"/>
+  <hasDisorder rdf:resource="#Disorder-General-Anxiety"/>
+  <hasDisorder rdf:resource="#Disorder-Recurrent-Major-Depression"/>
+  <hasPrescribedMedication rdf:resource="#Medication-Sertraline"/>
+  <diagnosisStatus rdf:datatype="http://www.w3.org/2001/XMLSchema#string">confirmed</diagnosisStatus>
+  <diagnosisType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">new</diagnosisType>
+</Diagnosis>
+
+<MedicalAssessment rdf:about="#ItajubaComorbidPerson6_assessment">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <belongToContext rdf:resource="#ItajubaComorbidPerson6_context"/>
+  <hasDiagnosis rdf:resource="#ItajubaComorbidPerson6_diagnosis"/>
+  <hasSociodemographicProfile rdf:resource="#ItajubaComorbidPerson6_profile"/>
+</MedicalAssessment>
+
+<Context rdf:about="#ItajubaComorbidPerson6_context">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdf:type rdf:resource="#Instant"/>
+  <happenedAtLocation rdf:resource="#BR-MG"/>
+  <happenedAtLocation rdf:resource="#BR-MG-Itajauba"/>
+  <happenedAtTime rdf:resource="#ItajubaComorbidPerson6_context"/>
+  <happenedWithPerson rdf:resource="#ItajubaComorbidPerson6"/>
+  <happenedOn rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2019-11-04T12:05:23+01:00</happenedOn>
+</Context>
+
+<Diagnosis rdf:about="#ItajubaComorbidPerson6_remission_diagnosis">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdf:type rdf:resource="#NewDiagnosis"/>
+  <rdf:type rdf:resource="#RemissionDiagnosis"/>
+  <hasDisorder rdf:resource="#Disorder-Recurrent-Major-Depression"/>
+  <hasDisorder rdf:resource="#Disorder-General-Anxiety"/>
+  <diagnosisStatus rdf:datatype="http://www.w3.org/2001/XMLSchema#string">remission</diagnosisStatus>
+  <diagnosisType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">new</diagnosisType>
+</Diagnosis>
+
+<MedicalAssessment rdf:about="#ItajubaComorbidPerson6_remission_assessment">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <belongToContext rdf:resource="#ItajubaComorbidPerson6_remission_context"/>
+  <hasDiagnosis rdf:resource="#ItajubaComorbidPerson6_remission_diagnosis"/>
+  <hasSociodemographicProfile rdf:resource="#ItajubaComorbidPerson6_profile"/>
+</MedicalAssessment>
+
+<Context rdf:about="#ItajubaComorbidPerson6_remission_context">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdf:type rdf:resource="#Instant"/>
+  <happenedAtLocation rdf:resource="#BR-MG"/>
+  <happenedAtLocation rdf:resource="#BR-MG-Itajauba"/>
+  <happenedAtTime rdf:resource="#ItajubaComorbidPerson6_remission_context"/>
+  <happenedWithPerson rdf:resource="#ItajubaComorbidPerson6"/>
+  <happenedOn rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2020-03-01T12:05:23+01:00</happenedOn>
+</Context>
+
+<Person rdf:about="#ItajubaComorbidPerson7">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</Person>
+
+<SociodemographicProfile rdf:about="#ItajubaComorbidPerson7_profile">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdf:type rdf:resource="#Adult"/>
+  <rdf:type rdf:resource="#Single"/>
+  <rdf:type rdf:resource="#Female"/>
+  <rdf:type rdf:resource="#EduUnknown"/>
+  <rdf:type rdf:resource="#Housewife"/>
+  <belongToPerson rdf:resource="#ItajubaComorbidPerson7"/>
+  <age rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">55</age>
+  <educationLevel rdf:datatype="http://www.w3.org/2001/XMLSchema#string">unknown</educationLevel>
+  <employmentStatus rdf:datatype="http://www.w3.org/2001/XMLSchema#string">housewife</employmentStatus>
+  <gender rdf:datatype="http://www.w3.org/2001/XMLSchema#string">female</gender>
+  <maritalStatus rdf:datatype="http://www.w3.org/2001/XMLSchema#string">single</maritalStatus>
+</SociodemographicProfile>
+
+<Diagnosis rdf:about="#ItajubaComorbidPerson7_diagnosis">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdf:type rdf:resource="#NewDiagnosis"/>
+  <rdf:type rdf:resource="#ConfirmedDiagnosis"/>
+  <hasDisorder rdf:resource="#Disorder-General-Anxiety"/>
+  <hasDisorder rdf:resource="#Disorder-Recurrent-Major-Depression"/>
+  <hasPrescribedMedication rdf:resource="#Medication-Sertraline"/>
+  <diagnosisStatus rdf:datatype="http://www.w3.org/2001/XMLSchema#string">confirmed</diagnosisStatus>
+  <diagnosisType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">new</diagnosisType>
+</Diagnosis>
+
+<MedicalAssessment rdf:about="#ItajubaComorbidPerson7_assessment">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <belongToContext rdf:resource="#ItajubaComorbidPerson7_context"/>
+  <hasDiagnosis rdf:resource="#ItajubaComorbidPerson7_diagnosis"/>
+  <hasSociodemographicProfile rdf:resource="#ItajubaComorbidPerson7_profile"/>
+</MedicalAssessment>
+
+<Context rdf:about="#ItajubaComorbidPerson7_context">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdf:type rdf:resource="#Instant"/>
+  <happenedAtLocation rdf:resource="#BR-MG"/>
+  <happenedAtLocation rdf:resource="#BR-MG-Itajauba"/>
+  <happenedAtTime rdf:resource="#ItajubaComorbidPerson7_context"/>
+  <happenedWithPerson rdf:resource="#ItajubaComorbidPerson7"/>
+  <happenedOn rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2020-02-02T09:00:20+01:00</happenedOn>
+</Context>
+
+<Person rdf:about="#ItajubaComorbidPerson8">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</Person>
+
+<SociodemographicProfile rdf:about="#ItajubaComorbidPerson8_profile">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdf:type rdf:resource="#YoungAdult"/>
+  <rdf:type rdf:resource="#Single"/>
+  <rdf:type rdf:resource="#Female"/>
+  <rdf:type rdf:resource="#EduUnknown"/>
+  <rdf:type rdf:resource="#Employed"/>
+  <belongToPerson rdf:resource="#ItajubaComorbidPerson8"/>
+  <age rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">22</age>
+  <educationLevel rdf:datatype="http://www.w3.org/2001/XMLSchema#string">unknown</educationLevel>
+  <employmentStatus rdf:datatype="http://www.w3.org/2001/XMLSchema#string">employed</employmentStatus>
+  <gender rdf:datatype="http://www.w3.org/2001/XMLSchema#string">female</gender>
+  <maritalStatus rdf:datatype="http://www.w3.org/2001/XMLSchema#string">single</maritalStatus>
+</SociodemographicProfile>
+
+<Diagnosis rdf:about="#ItajubaComorbidPerson8_diagnosis">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdf:type rdf:resource="#NewDiagnosis"/>
+  <rdf:type rdf:resource="#ConfirmedDiagnosis"/>
+  <hasDisorder rdf:resource="#Disorder-General-Anxiety"/>
+  <hasDisorder rdf:resource="#Disorder-Recurrent-Major-Depression"/>
+  <hasPrescribedMedication rdf:resource="#Medication-Clonazepam"/>
+  <diagnosisStatus rdf:datatype="http://www.w3.org/2001/XMLSchema#string">confirmed</diagnosisStatus>
+  <diagnosisType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">new</diagnosisType>
+</Diagnosis>
+
+<MedicalAssessment rdf:about="#ItajubaComorbidPerson8_assessment">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <belongToContext rdf:resource="#ItajubaComorbidPerson8_context"/>
+  <hasDiagnosis rdf:resource="#ItajubaComorbidPerson8_diagnosis"/>
+  <hasSociodemographicProfile rdf:resource="#ItajubaComorbidPerson8_profile"/>
+</MedicalAssessment>
+
+<Context rdf:about="#ItajubaComorbidPerson8_context">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdf:type rdf:resource="#Instant"/>
+  <happenedAtLocation rdf:resource="#BR-MG"/>
+  <happenedAtLocation rdf:resource="#BR-MG-Itajauba"/>
+  <happenedAtTime rdf:resource="#ItajubaComorbidPerson8_context"/>
+  <happenedWithPerson rdf:resource="#ItajubaComorbidPerson8"/>
+  <happenedOn rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2019-11-04T12:05:23+01:00</happenedOn>
+</Context>
+
+<Diagnosis rdf:about="#ItajubaComorbidPerson8_remission_diagnosis">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdf:type rdf:resource="#NewDiagnosis"/>
+  <rdf:type rdf:resource="#RemissionDiagnosis"/>
+  <hasDisorder rdf:resource="#Disorder-Recurrent-Major-Depression"/>
+  <hasDisorder rdf:resource="#Disorder-General-Anxiety"/>
+  <diagnosisStatus rdf:datatype="http://www.w3.org/2001/XMLSchema#string">remission</diagnosisStatus>
+  <diagnosisType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">new</diagnosisType>
+</Diagnosis>
+
+<MedicalAssessment rdf:about="#ItajubaComorbidPerson8_remission_assessment">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <belongToContext rdf:resource="#ItajubaComorbidPerson8_remission_context"/>
+  <hasDiagnosis rdf:resource="#ItajubaComorbidPerson8_remission_diagnosis"/>
+  <hasSociodemographicProfile rdf:resource="#ItajubaComorbidPerson8_profile"/>
+</MedicalAssessment>
+
+<Context rdf:about="#ItajubaComorbidPerson8_remission_context">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdf:type rdf:resource="#Instant"/>
+  <happenedAtLocation rdf:resource="#BR-MG"/>
+  <happenedAtLocation rdf:resource="#BR-MG-Itajauba"/>
+  <happenedAtTime rdf:resource="#ItajubaComorbidPerson8_remission_context"/>
+  <happenedWithPerson rdf:resource="#ItajubaComorbidPerson8"/>
+  <happenedOn rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2020-03-01T12:05:23+01:00</happenedOn>
+</Context>
+
+<Person rdf:about="#ItajubaComorbidPerson9">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</Person>
+
+<SociodemographicProfile rdf:about="#ItajubaComorbidPerson9_profile">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdf:type rdf:resource="#YoungAdult"/>
+  <rdf:type rdf:resource="#Single"/>
+  <rdf:type rdf:resource="#Female"/>
+  <rdf:type rdf:resource="#EduUnknown"/>
+  <rdf:type rdf:resource="#Retired"/>
+  <belongToPerson rdf:resource="#ItajubaComorbidPerson9"/>
+  <age rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">22</age>
+  <educationLevel rdf:datatype="http://www.w3.org/2001/XMLSchema#string">unknown</educationLevel>
+  <employmentStatus rdf:datatype="http://www.w3.org/2001/XMLSchema#string">retired</employmentStatus>
+  <gender rdf:datatype="http://www.w3.org/2001/XMLSchema#string">female</gender>
+  <maritalStatus rdf:datatype="http://www.w3.org/2001/XMLSchema#string">single</maritalStatus>
+</SociodemographicProfile>
+
+<Diagnosis rdf:about="#ItajubaComorbidPerson9_diagnosis">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdf:type rdf:resource="#NewDiagnosis"/>
+  <rdf:type rdf:resource="#ConfirmedDiagnosis"/>
+  <hasDisorder rdf:resource="#Disorder-General-Anxiety"/>
+  <hasDisorder rdf:resource="#Disorder-Recurrent-Major-Depression"/>
+  <hasPrescribedMedication rdf:resource="#Medication-Clonazepam"/>
+  <diagnosisStatus rdf:datatype="http://www.w3.org/2001/XMLSchema#string">confirmed</diagnosisStatus>
+  <diagnosisType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">new</diagnosisType>
+</Diagnosis>
+
+<MedicalAssessment rdf:about="#ItajubaComorbidPerson9_assessment">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <belongToContext rdf:resource="#ItajubaComorbidPerson9_context"/>
+  <hasDiagnosis rdf:resource="#ItajubaComorbidPerson9_diagnosis"/>
+  <hasSociodemographicProfile rdf:resource="#ItajubaComorbidPerson9_profile"/>
+</MedicalAssessment>
+
+<Context rdf:about="#ItajubaComorbidPerson9_context">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdf:type rdf:resource="#Instant"/>
+  <happenedAtLocation rdf:resource="#BR-MG"/>
+  <happenedAtLocation rdf:resource="#BR-MG-Itajauba"/>
+  <happenedAtTime rdf:resource="#ItajubaComorbidPerson9_context"/>
+  <happenedWithPerson rdf:resource="#ItajubaComorbidPerson9"/>
+  <happenedOn rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2019-11-04T12:05:23+01:00</happenedOn>
+</Context>
+
+<Person rdf:about="#ItajubaComorbidPerson10">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</Person>
+
+<SociodemographicProfile rdf:about="#ItajubaComorbidPerson10_profile">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdf:type rdf:resource="#Elderly"/>
+  <rdf:type rdf:resource="#Single"/>
+  <rdf:type rdf:resource="#Female"/>
+  <rdf:type rdf:resource="#EduUnknown"/>
+  <rdf:type rdf:resource="#Employed"/>
+  <belongToPerson rdf:resource="#ItajubaComorbidPerson10"/>
+  <age rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">65</age>
+  <educationLevel rdf:datatype="http://www.w3.org/2001/XMLSchema#string">unknown</educationLevel>
+  <employmentStatus rdf:datatype="http://www.w3.org/2001/XMLSchema#string">employed</employmentStatus>
+  <gender rdf:datatype="http://www.w3.org/2001/XMLSchema#string">female</gender>
+  <maritalStatus rdf:datatype="http://www.w3.org/2001/XMLSchema#string">single</maritalStatus>
+</SociodemographicProfile>
+
+<Diagnosis rdf:about="#ItajubaComorbidPerson10_diagnosis">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdf:type rdf:resource="#NewDiagnosis"/>
+  <rdf:type rdf:resource="#ConfirmedDiagnosis"/>
+  <hasDisorder rdf:resource="#Disorder-General-Anxiety"/>
+  <hasDisorder rdf:resource="#Disorder-Recurrent-Major-Depression"/>
+  <hasPrescribedMedication rdf:resource="#Medication-Sertraline"/>
+  <diagnosisStatus rdf:datatype="http://www.w3.org/2001/XMLSchema#string">confirmed</diagnosisStatus>
+  <diagnosisType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">new</diagnosisType>
+</Diagnosis>
+
+<MedicalAssessment rdf:about="#ItajubaComorbidPerson10_assessment">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <belongToContext rdf:resource="#ItajubaComorbidPerson10_context"/>
+  <hasDiagnosis rdf:resource="#ItajubaComorbidPerson10_diagnosis"/>
+  <hasSociodemographicProfile rdf:resource="#ItajubaComorbidPerson10_profile"/>
+</MedicalAssessment>
+
+<Context rdf:about="#ItajubaComorbidPerson10_context">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdf:type rdf:resource="#Instant"/>
+  <happenedAtLocation rdf:resource="#BR-MG"/>
+  <happenedAtLocation rdf:resource="#BR-MG-Itajauba"/>
+  <happenedAtTime rdf:resource="#ItajubaComorbidPerson10_context"/>
+  <happenedWithPerson rdf:resource="#ItajubaComorbidPerson10"/>
+  <happenedOn rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2020-02-02T09:00:20+01:00</happenedOn>
+</Context>
+
+<Person rdf:about="#ItajubaComorbidPerson11">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</Person>
+
+<SociodemographicProfile rdf:about="#ItajubaComorbidPerson11_profile">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdf:type rdf:resource="#Adult"/>
+  <rdf:type rdf:resource="#Married"/>
+  <rdf:type rdf:resource="#Male"/>
+  <rdf:type rdf:resource="#EduUnknown"/>
+  <rdf:type rdf:resource="#Student"/>
+  <belongToPerson rdf:resource="#ItajubaComorbidPerson11"/>
+  <age rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">45</age>
+  <educationLevel rdf:datatype="http://www.w3.org/2001/XMLSchema#string">unknown</educationLevel>
+  <employmentStatus rdf:datatype="http://www.w3.org/2001/XMLSchema#string">student</employmentStatus>
+  <gender rdf:datatype="http://www.w3.org/2001/XMLSchema#string">male</gender>
+  <maritalStatus rdf:datatype="http://www.w3.org/2001/XMLSchema#string">married</maritalStatus>
+</SociodemographicProfile>
+
+<Diagnosis rdf:about="#ItajubaComorbidPerson11_diagnosis">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdf:type rdf:resource="#NewDiagnosis"/>
+  <rdf:type rdf:resource="#ConfirmedDiagnosis"/>
+  <hasDisorder rdf:resource="#Disorder-General-Anxiety"/>
+  <hasDisorder rdf:resource="#Disorder-Recurrent-Major-Depression"/>
+  <hasPrescribedMedication rdf:resource="#Medication-Escitalopram"/>
+  <diagnosisStatus rdf:datatype="http://www.w3.org/2001/XMLSchema#string">confirmed</diagnosisStatus>
+  <diagnosisType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">new</diagnosisType>
+</Diagnosis>
+
+<MedicalAssessment rdf:about="#ItajubaComorbidPerson11_assessment">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <belongToContext rdf:resource="#ItajubaComorbidPerson11_context"/>
+  <hasDiagnosis rdf:resource="#ItajubaComorbidPerson11_diagnosis"/>
+  <hasSociodemographicProfile rdf:resource="#ItajubaComorbidPerson11_profile"/>
+</MedicalAssessment>
+
+<Context rdf:about="#ItajubaComorbidPerson11_context">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdf:type rdf:resource="#Instant"/>
+  <happenedAtLocation rdf:resource="#BR-MG"/>
+  <happenedAtLocation rdf:resource="#BR-MG-Itajauba"/>
+  <happenedAtTime rdf:resource="#ItajubaComorbidPerson11_context"/>
+  <happenedWithPerson rdf:resource="#ItajubaComorbidPerson11"/>
+  <happenedOn rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2019-11-04T12:05:23+01:00</happenedOn>
+</Context>
+
+<Diagnosis rdf:about="#ItajubaComorbidPerson11_remission_diagnosis">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdf:type rdf:resource="#NewDiagnosis"/>
+  <rdf:type rdf:resource="#RemissionDiagnosis"/>
+  <hasDisorder rdf:resource="#Disorder-Recurrent-Major-Depression"/>
+  <hasDisorder rdf:resource="#Disorder-General-Anxiety"/>
+  <diagnosisStatus rdf:datatype="http://www.w3.org/2001/XMLSchema#string">remission</diagnosisStatus>
+  <diagnosisType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">new</diagnosisType>
+</Diagnosis>
+
+<MedicalAssessment rdf:about="#ItajubaComorbidPerson11_remission_assessment">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <belongToContext rdf:resource="#ItajubaComorbidPerson11_remission_context"/>
+  <hasDiagnosis rdf:resource="#ItajubaComorbidPerson11_remission_diagnosis"/>
+  <hasSociodemographicProfile rdf:resource="#ItajubaComorbidPerson11_profile"/>
+</MedicalAssessment>
+
+<Context rdf:about="#ItajubaComorbidPerson11_remission_context">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdf:type rdf:resource="#Instant"/>
+  <happenedAtLocation rdf:resource="#BR-MG"/>
+  <happenedAtLocation rdf:resource="#BR-MG-Itajauba"/>
+  <happenedAtTime rdf:resource="#ItajubaComorbidPerson11_remission_context"/>
+  <happenedWithPerson rdf:resource="#ItajubaComorbidPerson11"/>
+  <happenedOn rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2020-03-01T12:05:23+01:00</happenedOn>
+</Context>
+
+<Person rdf:about="#ItajubaComorbidPerson12">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</Person>
+
+<SociodemographicProfile rdf:about="#ItajubaComorbidPerson12_profile">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdf:type rdf:resource="#Adult"/>
+  <rdf:type rdf:resource="#Married"/>
+  <rdf:type rdf:resource="#Male"/>
+  <rdf:type rdf:resource="#EduUnknown"/>
+  <rdf:type rdf:resource="#Student"/>
+  <belongToPerson rdf:resource="#ItajubaComorbidPerson12"/>
+  <age rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">55</age>
+  <educationLevel rdf:datatype="http://www.w3.org/2001/XMLSchema#string">unknown</educationLevel>
+  <employmentStatus rdf:datatype="http://www.w3.org/2001/XMLSchema#string">student</employmentStatus>
+  <gender rdf:datatype="http://www.w3.org/2001/XMLSchema#string">male</gender>
+  <maritalStatus rdf:datatype="http://www.w3.org/2001/XMLSchema#string">married</maritalStatus>
+</SociodemographicProfile>
+
+<Diagnosis rdf:about="#ItajubaComorbidPerson12_diagnosis">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdf:type rdf:resource="#NewDiagnosis"/>
+  <rdf:type rdf:resource="#ConfirmedDiagnosis"/>
+  <hasDisorder rdf:resource="#Disorder-General-Anxiety"/>
+  <hasDisorder rdf:resource="#Disorder-Recurrent-Major-Depression"/>
+  <hasPrescribedMedication rdf:resource="#Medication-Escitalopram"/>
+  <diagnosisStatus rdf:datatype="http://www.w3.org/2001/XMLSchema#string">confirmed</diagnosisStatus>
+  <diagnosisType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">new</diagnosisType>
+</Diagnosis>
+
+<MedicalAssessment rdf:about="#ItajubaComorbidPerson12_assessment">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <belongToContext rdf:resource="#ItajubaComorbidPerson12_context"/>
+  <hasDiagnosis rdf:resource="#ItajubaComorbidPerson12_diagnosis"/>
+  <hasSociodemographicProfile rdf:resource="#ItajubaComorbidPerson12_profile"/>
+</MedicalAssessment>
+
+<Context rdf:about="#ItajubaComorbidPerson12_context">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdf:type rdf:resource="#Instant"/>
+  <happenedAtLocation rdf:resource="#BR-MG"/>
+  <happenedAtLocation rdf:resource="#BR-MG-Itajauba"/>
+  <happenedAtTime rdf:resource="#ItajubaComorbidPerson12_context"/>
+  <happenedWithPerson rdf:resource="#ItajubaComorbidPerson12"/>
+  <happenedOn rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2019-11-04T12:05:23+01:00</happenedOn>
+</Context>
+
+<Person rdf:about="#ItajubaComorbidPerson13">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</Person>
+
+<SociodemographicProfile rdf:about="#ItajubaComorbidPerson13_profile">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdf:type rdf:resource="#YoungAdult"/>
+  <rdf:type rdf:resource="#Widower"/>
+  <rdf:type rdf:resource="#Female"/>
+  <rdf:type rdf:resource="#EduUnknown"/>
+  <rdf:type rdf:resource="#Employed"/>
+  <belongToPerson rdf:resource="#ItajubaComorbidPerson13"/>
+  <age rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">18</age>
+  <educationLevel rdf:datatype="http://www.w3.org/2001/XMLSchema#string">unknown</educationLevel>
+  <employmentStatus rdf:datatype="http://www.w3.org/2001/XMLSchema#string">employed</employmentStatus>
+  <gender rdf:datatype="http://www.w3.org/2001/XMLSchema#string">female</gender>
+  <maritalStatus rdf:datatype="http://www.w3.org/2001/XMLSchema#string">widower</maritalStatus>
+</SociodemographicProfile>
+
+<Diagnosis rdf:about="#ItajubaComorbidPerson13_diagnosis">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdf:type rdf:resource="#NewDiagnosis"/>
+  <rdf:type rdf:resource="#ConfirmedDiagnosis"/>
+  <hasDisorder rdf:resource="#Disorder-General-Anxiety"/>
+  <hasDisorder rdf:resource="#Disorder-Recurrent-Major-Depression"/>
+  <hasPrescribedMedication rdf:resource="#Medication-Diazepam"/>
+  <diagnosisStatus rdf:datatype="http://www.w3.org/2001/XMLSchema#string">confirmed</diagnosisStatus>
+  <diagnosisType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">new</diagnosisType>
+</Diagnosis>
+
+<MedicalAssessment rdf:about="#ItajubaComorbidPerson13_assessment">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <belongToContext rdf:resource="#ItajubaComorbidPerson13_context"/>
+  <hasDiagnosis rdf:resource="#ItajubaComorbidPerson13_diagnosis"/>
+  <hasSociodemographicProfile rdf:resource="#ItajubaComorbidPerson13_profile"/>
+</MedicalAssessment>
+
+<Context rdf:about="#ItajubaComorbidPerson13_context">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdf:type rdf:resource="#Instant"/>
+  <happenedAtLocation rdf:resource="#BR-MG"/>
+  <happenedAtLocation rdf:resource="#BR-MG-Itajauba"/>
+  <happenedAtTime rdf:resource="#ItajubaComorbidPerson13_context"/>
+  <happenedWithPerson rdf:resource="#ItajubaComorbidPerson13"/>
+  <happenedOn rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2020-02-02T09:00:20+01:00</happenedOn>
+</Context>
+
+
+</rdf:RDF>
